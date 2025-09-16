@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="This is an example category">
+<title>Category: Test - 陨熙然-Blog</title>
+
+<link rel='canonical' href='https://yunmoxing.github.io/categories/test/'>
+
+<link rel="stylesheet" href="/scss/style.min.ac9b6eafafd2aada80067c6cc117a3d9324e39f0832bd0e9f8ad164108864a60.css"><meta property='og:title' content="Category: Test - 陨熙然-Blog">
+<meta property='og:description' content="This is an example category">
+<meta property='og:url' content='https://yunmoxing.github.io/categories/test/'>
+<meta property='og:site_name' content='陨熙然-Blog'>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2025-09-14T00:00:00&#43;00:00 '/><meta property='og:image' content='https://yunmoxing.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg' />
+<meta name="twitter:title" content="Category: Test - 陨熙然-Blog">
+<meta name="twitter:description" content="This is an example category"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://yunmoxing.github.io/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg' /><link rel="alternate" type="application/rss&#43;xml" href="https://yunmoxing.github.io/categories/test/index.xml">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+
+<style>
+#cursor {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    background: #2ED8F1;
+    border-radius: 8px;
+    opacity: 0.25;
+    z-index: 10086;
+    pointer-events: none;
+    transition: 0.2s ease-in-out;
+    transition-property: background, opacity, transform;
+}
+
+#cursor.hidden {
+    opacity: 0;
+}
+
+#cursor.hover {
+    opacity: 0.1;
+    transform: scale(2.5);
+}
+
+#cursor.active {
+    opacity: 0.5;
+    transform: scale(0.5);
+}
+
+ 
+.site-name a {
+    background: linear-gradient(45deg, 
+         
+        #ff6b6b, #ff8e8e, #ffa502, #ffb833,
+         
+        #4ecdc4, #45b7d1, #54a0ff, #5f27cd,
+         
+        #96ceb4, #2ed573, #00ced1, #1e90ff,
+         
+        #ff9ff3, #8a2be2, #ff1493, #ff4757,
+         
+        #ffa502, #feca57, #32cd32, #00ff7f,
+         
+        #4169e1, #9370db, #ff69b4, #ff1493,
+         
+        #ff6347, #ff69b4, #8a2be2, #5f27cd,
+         
+        #4ecdc4, #3cb371, #00bfff, #1e90ff
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 12s ease-in-out infinite;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.site-name a:hover {
+    animation: gradientFlow 6s ease-in-out infinite;
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+ 
+[data-scheme="dark"] .site-name a {
+    background: linear-gradient(45deg, 
+         
+        #ff6b6b, #ff8e8e, #ffa502, #ffb833,
+         
+        #4ecdc4, #45b7d1, #54a0ff, #5f27cd,
+         
+        #96ceb4, #2ed573, #00ced1, #1e90ff,
+         
+        #ff9ff3, #8a2be2, #ff1493, #ff4757,
+         
+        #ffa502, #feca57, #32cd32, #00ff7f,
+         
+        #4169e1, #9370db, #ff69b4, #ff1493,
+         
+        #ff6347, #ff69b4, #8a2be2, #5f27cd,
+         
+        #4ecdc4, #3cb371, #00bfff, #1e90ff
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+</style>
+
+<script>
+var CURSOR;
+Math.lerp = (a, b, n) => (1 - n) * a + n * b;
+
+const getStyle = (el, attr) => {
+    try {
+        return window.getComputedStyle
+            ? window.getComputedStyle(el)[attr]
+            : el.currentStyle[attr];
+    } catch (e) {}
+    return "";
+};
+
+class Cursor {
+    constructor() {
+        this.pos = {curr: null, prev: null};
+        this.pt = [];
+        this.create();
+        this.init();
+        this.render();
+    }
+
+    move(left, top) {
+        this.cursor.style["left"] = `${left}px`;
+        this.cursor.style["top"] = `${top}px`;
+    }
+
+    create() {
+        if (!this.cursor) {
+            this.cursor = document.createElement("div");
+            this.cursor.id = "cursor";
+            this.cursor.classList.add("hidden");
+            document.body.append(this.cursor);
+        }
+
+        var el = document.getElementsByTagName('*');
+        for (let i = 0; i < el.length; i++)
+            if (getStyle(el[i], "cursor") == "pointer")
+                this.pt.push(el[i].outerHTML);
+
+        document.body.appendChild((this.scr = document.createElement("style")));
+        this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' fill='%232ED8F1' opacity='.5'/></svg>") 4 4, auto !important}`;
+    }
+
+    refresh() {
+        this.scr.remove();
+        this.cursor.classList.remove("hover");
+        this.cursor.classList.remove("active");
+        this.pos = {curr: null, prev: null};
+        this.pt = [];
+        this.create();
+        this.init();
+        this.render();
+    }
+
+    init() {
+        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");
+        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");
+        document.onmousemove  = e => {(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8); this.pos.curr = {x: e.clientX - 8, y: e.clientY - 8}; this.cursor.classList.remove("hidden");};
+        document.onmouseenter = e => this.cursor.classList.remove("hidden");
+        document.onmouseleave = e => this.cursor.classList.add("hidden");
+        document.onmousedown  = e => this.cursor.classList.add("active");
+        document.onmouseup    = e => this.cursor.classList.remove("active");
+    }
+
+    render() {
+        if (this.pos.prev) {
+            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);
+            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);
+            this.move(this.pos.prev.x, this.pos.prev.y);
+        } else {
+            this.pos.prev = this.pos.curr;
+        }
+        requestAnimationFrame(() => this.render());
+    }
+}
+
+(() => {
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            CURSOR = new Cursor();
+        });
+    } else {
+        CURSOR = new Cursor();
+    }
+})();
+</script>
+
+
+
+
+
+<style>
+ 
+#page-loader {
+    position: fixed;
+    inset: 0;
+    display: none;  
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    background: var(--body-background, #f5f5fa);
+}
+
+ 
+@keyframes loaderFadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    60% { opacity: 0.35; transform: scale(1.06); }
+    100% { opacity: 0; transform: scale(1.1); }
+}
+
+#page-loader.is-fading-out {
+    animation: loaderFadeOut 1200ms cubic-bezier(.22,.61,.36,1) forwards;
+    will-change: opacity, transform;
+}
+
+ 
+#page-loader.is-fading-out .yin-yang {
+    opacity: 0.25;
+    transition: opacity 800ms ease;
+}
+
+ 
+.yin-yang-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+.yin-yang {
+     
+    --yin-size: 280px;  
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, white 50%, black 50%);
+    animation: rotate 4s linear infinite;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+}
+.yin-yang { width: var(--yin-size); height: var(--yin-size); }
+.yin-yang::before,
+.yin-yang::after {
+    content: "";
+    position: absolute;
+    width: calc(var(--yin-size) / 2);
+    height: calc(var(--yin-size) / 2);
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.yin-yang::before {
+    top: 0;
+    background: black;
+}
+.yin-yang::after {
+    bottom: 0;
+    background: white;
+}
+.yin-yang:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+.dot {
+    position: absolute;
+    width: calc(var(--yin-size) * 0.15);
+    height: calc(var(--yin-size) * 0.15);
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    animation: pulse 4s ease-in-out infinite;
+}
+.dot.white { background: white; top: calc(var(--yin-size) * 0.25); }
+.dot.black { background: black; bottom: calc(var(--yin-size) * 0.25); }
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes pulse { 0%,100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.1); } }
+
+ 
+[data-scheme="dark"] #page-loader {
+    background: var(--body-background, #0f1115);
+}
+</style>
+
+<div id="page-loader" aria-hidden="true">
+    
+    <div class="yin-yang-loader">
+        <div class="yin-yang" role="status" aria-label="Loading">
+            <div class="dot white"></div>
+            <div class="dot black"></div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+
+(function initSessionLoadingOnce() {
+    try {
+        var hasVisited = sessionStorage.getItem('visited');
+        var loaderEl = document.getElementById('page-loader');
+        if (!loaderEl) return;
+
+        if (!hasVisited) {
+            
+            loaderEl.style.display = 'flex';
+
+            
+            var onFadeEnd = function() {
+                loaderEl.style.display = 'none';
+                loaderEl.removeEventListener('animationend', onFadeEnd);
+            };
+            var finish = function() {
+                if (!loaderEl) return;
+                loaderEl.addEventListener('animationend', onFadeEnd, { once: true });
+                loaderEl.classList.add('is-fading-out');
+                sessionStorage.setItem('visited', 'true');
+            };
+
+            if (document.readyState === 'complete') {
+                
+                finish();
+            } else {
+                window.addEventListener('load', finish, { once: true });
+            }
+        } else {
+            
+            loaderEl.style.display = 'none';
+        }
+    } catch (e) {
+        
+        var el = document.getElementById('page-loader');
+        if (el) el.style.display = 'none';
+    }
+})();
+</script>
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_fa43c3861b2bc72.gif" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🖥️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">陨熙然-Blog</a></h1>
+            <h2 class="site-description">山高自有客行路</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/yunmoxing'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://bilibili.com/3537114014681514'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:m19880730368@163.com'
+                        target="_blank"
+                        title="Email"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-mail-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 19h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v5.5" /><path d="M19 22v-6" /><path d="M22 19l-3 -3l-3 3" /><path d="M3 7l9 6l9 -6" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.jxue.edu.cn/'
+                        target="_blank"
+                        title="School"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-school"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页 | Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E-about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于 | About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档&amp;分类 | Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%93%BE%E6%8E%A5-links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接 | Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/movies/' >
+                
+                
+                
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-movie"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 4l0 16" /><path d="M16 4l0 16" /><path d="M4 8l4 0" /><path d="M4 16l4 0" /><path d="M4 12l16 0" /><path d="M16 8l4 0" /><path d="M16 16l4 0" /></svg>
+                
+                <span>影音 | Movies</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索 | Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/photos/' >
+                
+                
+                
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-photo"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 8h.01" /><path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-12z" /><path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l5 5" /><path d="M14 14l1 -1c.928 -.893 2.072 -.893 3 0l3 3" /></svg>
+                
+                <span>相册 | photos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/goods/' >
+                
+                
+                
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-device-desktop"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z" /><path d="M7 20h10" /><path d="M9 16v4" /><path d="M15 16v4" /></svg>
+                
+                <span>装备 | goods</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+            <main class="main full-width">
+    <header>
+        <h3 class="section-title">
+            
+                Categories
+            
+        </h3>
+
+        <div class="section-card">
+            <div class="section-details">
+                <h3 class="section-count">3 个页面</h3>
+                <h1 class="section-term">Test</h1>
+                
+                    <h2 class="section-description">This is an example category</h2>
+                
+            </div>
+                <div class="section-image">
+                    <img src="/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash_hu_30cc804daec7a86b.jpg" 
+                            width="120"
+                            height="120" 
+                            loading="lazy">
+                    
+                </div>
+            
+        </div>
+    </header>
+    
+    <section class="article-list--compact">
+        
+            <article>
+    <a href="/p/%E4%BD%A0%E5%A5%BD-hugo/">
+        <div class="article-details">
+            <h2 class="article-title">你好 Hugo</h2>
+            <footer class="article-time">
+                <time datetime='2025-09-14T00:00:00Z'>Sep 14, 2025</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/%E4%BD%A0%E5%A5%BD-hugo/daniel-sessler-HHRckNv-gK8-unsplash_hu_29aa9542941c2d8c.jpg" 
+                        width="120"
+                        height="120" 
+                        alt="你好 Hugo"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+        
+            <article>
+    <a href="/p/test-chinese/">
+        <div class="article-details">
+            <h2 class="article-title">Chinese Test</h2>
+            <footer class="article-time">
+                <time datetime='2020-09-09T00:00:00Z'>Sep 09, 2020</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_2307260c751d0e0b.jpg" 
+                        width="120"
+                        height="120" 
+                        alt="Chinese Test"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+        
+            <article>
+    <a href="/p/emoji-support/">
+        <div class="article-details">
+            <h2 class="article-title">Emoji Support</h2>
+            <footer class="article-time">
+                <time datetime='2019-03-05T00:00:00Z'>Mar 05, 2019</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                <img src="/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash_hu_27b8954607cdb515.jpg" 
+                        width="120"
+                        height="120" 
+                        alt="Emoji Support"
+                        loading="lazy">
+                
+            </div>
+        
+    </a>
+</article>
+        
+    </section>
+<footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 陨熙然-Blog
+    </section>
+    
+    <section class="powerby">
+        
+            <span class="runtime-display">本站已运行</span> <br/>
+        
+
+        
+        <span class="site-stats">共发表 3 篇文章・总计 2.21k 字</span> <br/>
+        
+
+        
+        
+            <span class="page-views" id="site-pageviews">本站总访问量 <span id="pageviews-count">0</span> 次</span> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+
+<script src="/ts/pageviews.js"></script>
+
+
+
+
+
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.1e9a3bafd846ced4c345d084b355fb8c7bae75701c338f8a1f8a82c780137826.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<style>
+    #TableOfContents > ul, ol {
+        ul, ol {
+            display: none;
+        }
+        .open {
+            display: block;
+        }
+    }
+</style>
+
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        initTocHide();
+    });
+</script>
+
+
+<style>
+    #backTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        z-index: 99;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-image: url('/icons/backTop.svg');
+    }
+</style>
+
+
+<script>
+    
+
+    function initScrollTop() {
+        let rightSideBar = document.querySelector(".right-sidebar");
+        if (!rightSideBar) {
+            return;
+        }
+        
+        let btn = document.createElement("div");
+        btn.id = "backTopBtn";
+        btn.onclick = backToTop
+        rightSideBar.appendChild(btn)
+        
+        window.addEventListener('scroll', function() {
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        });
+    }
+
+    
+
+    function backToTop(){
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        initScrollTop();
+        
+        
+        setTimeout(function() {
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            if (darkModeToggle) {
+                console.log('颜色切换按钮找到:', darkModeToggle);
+                console.log('按钮点击事件监听器数量:', darkModeToggle.onclick ? 1 : 0);
+            } else {
+                console.warn('颜色切换按钮未找到');
+            }
+        }, 1000);
+    });
+</script>
+
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+
+<script>
+  function initCodeMoreBox() {
+    let codeBlocks = document.querySelectorAll(".highlight");
+    if (!codeBlocks) {
+      return;
+    }
+    codeBlocks.forEach(codeBlock => {
+      
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) {
+        return;
+      }
+      
+      
+      let codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+      
+      let codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+        
+        window.dispatchEvent(new Event('resize'))
+      })
+      
+      let img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = 'https:\/\/yunmoxing.github.io\/icons\/codeMore.png'
+      
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox)
+    })
+  }
+  
+  initCodeMoreBox();
+</script>
+
+
+<style>
+    @font-face {
+        font-family: '仓耳状元楷';
+        src: url('https://yunmoxing.github.io/font/%E4%BB%93%E8%80%B3%E7%8A%B6%E5%85%83%E6%A5%B7.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+     
+    @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('https://yunmoxing.github.io/font/JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('https://yunmoxing.github.io/font/JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    :root {
+         
+        --base-font-family: '仓耳状元楷';
+         
+        --code-font-family: 'JetBrains Mono', Menlo, Monaco, Consolas, 'Courier New', monospace;
+         
+        --article-font-size: 2.0rem;
+    }
+
+    @media (min-width: 768px) {
+        :root {
+            --article-font-size: 2.2rem;
+        }
+    }
+
+         
+        .article-content {
+            font-size: var(--article-font-size) !important;
+            line-height: var(--article-line-height) !important;
+        }
+
+         
+        .article-content code,
+        .article-content pre,
+        .article-content pre code,
+        .article-content .highlight pre {
+            font-size: 1.6rem !important;
+            line-height: 1.4 !important;
+        }
+
+         
+        .left-sidebar {
+            font-family: '仓耳状元楷', sans-serif !important;
+        }
+
+         
+        .left-sidebar .site-name {
+            font-size: 2.2rem !important;
+            font-weight: bold !important;
+        }
+
+        .left-sidebar .site-name a {
+            font-size: 2.2rem !important;
+            font-weight: bold !important;
+        }
+
+         
+        .left-sidebar .site-description {
+            font-size: 1.8rem !important;
+            line-height: 1.4 !important;
+            white-space: normal !important;
+            overflow: visible !important;
+            text-overflow: unset !important;
+            text-align: left !important;
+        }
+
+         
+        .left-sidebar #main-menu li a,
+        .left-sidebar #main-menu li span,
+        .left-sidebar .menu li a,
+        .left-sidebar .menu li span,
+        .left-sidebar #main-menu,
+        .left-sidebar #main-menu li,
+        .left-sidebar #main-menu li a,
+        .left-sidebar #main-menu li span,
+        .left-sidebar .menu,
+        .left-sidebar .menu li,
+        .left-sidebar .menu li a,
+        .left-sidebar .menu li span,
+        .left-sidebar nav li a,
+        .left-sidebar nav li span,
+        .left-sidebar .sidebar-menu li a,
+        .left-sidebar .sidebar-menu li span {
+            font-size: 1.6rem !important;
+            line-height: 1.2 !important;
+        }
+
+         
+        .left-sidebar #dark-mode-toggle span {
+            font-size: 1.6rem !important;
+            line-height: 1.2 !important;
+        }
+
+         
+        .left-sidebar .menu-social {
+            font-size: 1.6rem !important;
+        }
+
+         
+        body .left-sidebar .menu li a,
+        body .left-sidebar .menu li span,
+        body .left-sidebar #main-menu li a,
+        body .left-sidebar #main-menu li span {
+            font-size: 1.6rem !important;
+            line-height: 1.2 !important;
+        }
+
+         
+        .left-sidebar .menu li a.active,
+        .left-sidebar .menu li span.active,
+        .left-sidebar #main-menu li a.active,
+        .left-sidebar #main-menu li span.active,
+        .left-sidebar .menu li a:hover,
+        .left-sidebar .menu li span:hover,
+        .left-sidebar #main-menu li a:hover,
+        .left-sidebar #main-menu li span:hover,
+        body .left-sidebar .menu li a.active,
+        body .left-sidebar .menu li span.active,
+        body .left-sidebar #main-menu li a.active,
+        body .left-sidebar #main-menu li span.active,
+        body .left-sidebar .menu li a:hover,
+        body .left-sidebar .menu li span:hover,
+        body .left-sidebar #main-menu li a:hover,
+        body .left-sidebar #main-menu li span:hover {
+            color: #87CEEB !important;
+            font-weight: bold !important;
+        }
+</style>
+
+
+<div id="particles-js"></div>
+
+<script src=https://yunmoxing.github.io/background/particles.min.js></script>
+<script>
+  particlesJS.load('particles-js', 'https:\/\/yunmoxing.github.io\/background\/particlesjs-config.json', function() {
+    console.log('particles.js loaded - callback');
+  });
+</script>
+
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -2;
+  }
+</style>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
+    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
+    crossorigin="anonymous"
+></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
+    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
+    crossorigin="anonymous"
+/>
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+
+
+
+<script type="text/javascript"
+    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/ribbon.min.js"
+    size="300"
+    alpha="0.6"
+    zIndex="-1"
+></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+<script>
+    const cdnPath = "https://cdn.jsdelivr.net/gh/yunmoxing/yan_live2d-widget-v3@v0.0.5-release/";
+    const config = {
+      
+      path: {
+        homePath: "/",
+        modelPath: cdnPath + "/Resources/",
+        cssPath: cdnPath + "/waifu.css",
+        tipsJsonPath: "/waifu-tips.json",
+        tipsJsPath: cdnPath + "/waifu-tips.js",
+        live2dCorePath: cdnPath + "/Core/live2dcubismcore.js",
+        live2dSdkPath: cdnPath + "/live2d-sdk.js"
+      },
+      
+      tools: ["hitokoto", "asteroids", "express", "switch-model", "switch-texture", "photo", "info", "quit"],
+      
+      drag: {
+        enable: true,
+        direction: ["x", "y"]
+      },
+      
+      switchType: "order"
+    }
+  
+    
+    if (screen.width >= 768) {
+      Promise.all([
+        loadExternalResource(config.path.cssPath, "css"),
+        loadExternalResource(config.path.live2dCorePath, "js"),
+        loadExternalResource(config.path.live2dSdkPath, "js"),
+        loadExternalResource(config.path.tipsJsPath, "js"),
+      ]).then(() => {
+        initWidget({
+          waifuPath: config.path.tipsJsonPath,
+          cdnPath: config.path.modelPath,
+          tools: config.tools,
+          dragEnable: config.drag.enable,
+          dragDirection: config.drag.direction,
+          switchType: config.switchType
+        });
+      });
+    }
+
+    
+    function loadExternalResource(url, type) {
+      return new Promise((resolve, reject) => {
+        let tag;
+        if (type === "css") {
+          tag = document.createElement("link");
+          tag.rel = "stylesheet";
+          tag.href = url;
+        }
+        else if (type === "js") {
+          tag = document.createElement("script");
+          tag.src = url;
+        }
+        if (tag) {
+          tag.onload = () => resolve(url);
+          tag.onerror = () => reject(url);
+          document.head.appendChild(tag);
+        }
+      });
+    }
+  </script>
+  
+
+
+
+
+<div id="aplayer"></div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+<script>
+    
+    const staticDir = 'https:\/\/yunmoxing.github.io\/' + 'music/';
+    const songs = [
+        '倒数 - G.E.M.邓紫棋',
+        '句号 - G.E.M.邓紫棋',
+        '泡沫 - G.E.M.邓紫棋',
+        '画皮 - 纸砚zyan',
+        '从未见过的海 - 告五人',
+        '失眠播报 - 苏星婕',
+        '阿拉斯加海湾 - 蓝心羽',
+        '鹿 be free - 尚雯婕',
+        '静悄悄 - 陈泫孝',
+        'en (王翊恩) - 嚣张'
+
+    ];
+    let audios = [];
+    songs.forEach(item => {
+        
+        const songInfo = item.split(' - ');
+        const songName = songInfo[0] || item;
+        const artist = songInfo[1] || '未知艺术家';
+        
+        audios.push({
+            name: songName,
+            artist: artist,
+            url: staticDir + item + '/song.mp3',
+            cover: staticDir + item + '/cover.jpg',
+            lrc: staticDir + item + '/lyric.lrc'
+        });
+    });
+    
+    
+    const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: true,
+        lrcType: 3,
+        audio: audios
+    });
+
+    
+    const STORAGE_KEY = 'aplayer_play_state_v1';
+
+    
+    function restorePlayState() {
+        try {
+            const json = localStorage.getItem(STORAGE_KEY);
+            if (!json) return;
+            const state = JSON.parse(json);
+            if (!state) return;
+
+            
+            if (typeof state.index === 'number' && state.index >= 0 && state.index < ap.list.audios.length) {
+                ap.list.switch(state.index);
+            }
+
+            
+            const targetTime = Number(state.currentTime || 0);
+            if (!Number.isNaN(targetTime) && targetTime > 0) {
+                setTimeout(() => {
+                    try { ap.seek(targetTime); } catch (e) {}
+                }, 300);
+            }
+
+            
+            if (state.paused === false) {
+                setTimeout(() => { try { ap.play(); } catch (e) {} }, 350);
+            }
+        } catch (_) {}
+    }
+
+    
+    function persistPlayState() {
+        try {
+            const state = {
+                index: ap.list.index,
+                currentTime: ap.audio ? ap.audio.currentTime : 0,
+                paused: ap.paused
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (_) {}
+    }
+
+    
+    ap.on('timeupdate', persistPlayState);
+    ap.on('listswitch', persistPlayState);
+    ap.on('pause', persistPlayState);
+    ap.on('play', persistPlayState);
+
+    
+    window.addEventListener('beforeunload', persistPlayState);
+
+    
+    window.addEventListener('load', restorePlayState);
+</script>
+
+
+
+<script>
+    
+    (function() {
+        var originalTitle = document.title;
+        var restoreTimer = null;
+        var leaveTexts = [
+            'o(TヘTo)我会想你的~',
+            '(￣︿￣)别走嘛~',
+            '(；′⌒`)你去哪儿了？',
+            '(｡•́︿•̀｡)我在这里等你…',
+            '(つ﹏⊂) 还会回来吗？'
+        ];
+        var backTexts = [
+            '(≧∀≦)ゞ我就知道你舍不得我！',
+            '(๑•̀ㅂ•́)و✧ 欢迎归来！',
+            'o(≧口≦)o 你回来啦！',
+            '(*^▽^*) 想你啦~',
+            '(＾▽＾) 欢迎回来~'
+        ];
+
+        function pickRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function handleVisibilityChange() {
+            if (document.hidden) {
+                
+                originalTitle = originalTitle || document.title;
+                document.title = pickRandom(leaveTexts);
+                if (restoreTimer) clearTimeout(restoreTimer);
+            } else {
+                
+                document.title = pickRandom(backTexts);
+                if (restoreTimer) clearTimeout(restoreTimer);
+                restoreTimer = setTimeout(function() {
+                    document.title = originalTitle;
+                }, 1500);
+            }
+        }
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        
+        window.addEventListener('pageshow', function() {
+            if (!document.hidden) handleVisibilityChange();
+        });
+    })();
+</script>
+
+
+<script>
+    
+    (function() {
+        
+        var startDateStr = "2025-09-15";
+        var startDate = new Date(startDateStr.replace(/-/g, '/')); 
+        var now = new Date();
+        
+        
+        const diffTime = now - startDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+        const diffSeconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+        
+        
+        function formatRuntime() {
+            let runtimeText = "本站已运行 ";
+            
+            if (diffDays > 0) {
+                runtimeText += diffDays + " 天";
+                if (diffHours > 0) {
+                    runtimeText += " " + diffHours + " 小时";
+                }
+                if (diffMinutes > 0) {
+                    runtimeText += " " + diffMinutes + " 分钟";
+                }
+                if (diffSeconds > 0) {
+                    runtimeText += " " + diffSeconds + " 秒";
+                }
+            } else if (diffHours > 0) {
+                runtimeText += diffHours + " 小时";
+                if (diffMinutes > 0) {
+                    runtimeText += " " + diffMinutes + " 分钟";
+                }
+                if (diffSeconds > 0) {
+                    runtimeText += " " + diffSeconds + " 秒";
+                }
+            } else if (diffMinutes > 0) {
+                runtimeText += diffMinutes + " 分钟";
+                if (diffSeconds > 0) {
+                    runtimeText += " " + diffSeconds + " 秒";
+                }
+            } else {
+                runtimeText += diffSeconds + " 秒";
+            }
+            
+            return runtimeText;
+        }
+        
+        
+        function updateRuntime() {
+            const runtimeElement = document.querySelector('.runtime-display');
+            if (runtimeElement) {
+                
+                const now = new Date();
+                const diffTime = now - startDate;
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+                const diffSeconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+                
+                let runtimeText = "本站已运行 ";
+                
+                if (diffDays > 0) {
+                    runtimeText += diffDays + " 天";
+                    if (diffHours > 0) {
+                        runtimeText += " " + diffHours + " 小时";
+                    }
+                    if (diffMinutes > 0) {
+                        runtimeText += " " + diffMinutes + " 分钟";
+                    }
+                    if (diffSeconds > 0) {
+                        runtimeText += " " + diffSeconds + " 秒";
+                    }
+                } else if (diffHours > 0) {
+                    runtimeText += diffHours + " 小时";
+                    if (diffMinutes > 0) {
+                        runtimeText += " " + diffMinutes + " 分钟";
+                    }
+                    if (diffSeconds > 0) {
+                        runtimeText += " " + diffSeconds + " 秒";
+                    }
+                } else if (diffMinutes > 0) {
+                    runtimeText += diffMinutes + " 分钟";
+                    if (diffSeconds > 0) {
+                        runtimeText += " " + diffSeconds + " 秒";
+                    }
+                } else {
+                    runtimeText += diffSeconds + " 秒";
+                }
+                
+                runtimeElement.textContent = runtimeText;
+            }
+        }
+        
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            updateRuntime();
+            
+            
+            setInterval(updateRuntime, 1000);
+        });
+    })();
+</script>
+
+
+<script defer src="https://cn.vercount.one/js"></script>
+<script>
+    
+    function showHideView() {
+        
+        let viewCounts = document.querySelectorAll("#viewCount");
+        if (viewCounts.length > 0) {
+            
+            let article = document.querySelector(".article-page");
+            if (!article) {
+                viewCounts.forEach(ele => {
+                    ele.style.display = 'none';
+                });
+            } else {
+                
+                viewCounts.forEach(ele => {
+                    ele.style.display = 'block';
+                });
+            }
+        }
+    }
+    
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        showHideView();
+        
+        
+        setTimeout(function() {
+            let vercountElement = document.getElementById('vercount_value_page_pv');
+            if (vercountElement && vercountElement.textContent === 'loading... ') {
+                console.log('vercount脚本可能未正确加载，尝试显示默认值');
+                vercountElement.textContent = '0';
+            }
+        }, 3000);
+    });
+</script>
+
+<script>
+    
+    
+    (function() {
+        function isHomePage() {
+            
+            var path = location.pathname;
+            return path === '/' || path === '';
+        }
+
+        function isLocalhost() {
+            var h = location.hostname;
+            return h.includes('localhost') || h === '127.0.0.1' || h === '0.0.0.0' || h === '::1' || location.port === '1313';
+        }
+
+        
+        function ensureSitePvPlaceholder() {
+            if (!document.getElementById('vercount_value_site_pv')) {
+                var span = document.createElement('span');
+                span.id = 'vercount_value_site_pv';
+                span.style.display = 'none';
+                document.body.appendChild(span);
+            }
+        }
+
+        function syncHomeVisitFromVercount() {
+            
+            var pvEle = document.getElementById('vercount_value_page_pv');
+            var siteVisitEle = document.getElementById('pageviews-count');
+            if (!siteVisitEle) return false;
+            if (!pvEle) return false;
+            var text = (pvEle.textContent || '').trim();
+            if (!text || text === 'loading...') return false;
+            siteVisitEle.textContent = text;
+            try { localStorage.setItem('home_page_pv', text); } catch(_) {}
+            return true;
+        }
+
+        function trySyncSitePv() {
+            var sitePvEle = document.getElementById('vercount_value_site_pv');
+            var siteVisitEle = document.getElementById('pageviews-count');
+            if (!siteVisitEle || !sitePvEle) return false;
+            var text = (sitePvEle.textContent || '').trim();
+            if (!text || text === 'loading...') return false;
+            siteVisitEle.textContent = text;
+            return true;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var siteVisitWrapper = document.getElementById('site-pageviews');
+            var siteVisitEle = document.getElementById('pageviews-count');
+            if (!siteVisitEle) return; 
+
+            
+            if (isLocalhost()) {
+                if (siteVisitWrapper) siteVisitWrapper.style.display = 'inline';
+                siteVisitEle.textContent = '0';
+                var pvEleLocal = document.getElementById('vercount_value_page_pv');
+                if (pvEleLocal) { pvEleLocal.textContent = '0'; }
+                return;
+            }
+
+            
+            if (siteVisitWrapper) siteVisitWrapper.style.display = 'inline';
+            siteVisitEle.style.display = 'inline';
+
+            
+            ensureSitePvPlaceholder();
+
+            
+            var attempts = 0;
+            var timer = setInterval(function() {
+                attempts++;
+                if (trySyncSitePv()) {
+                    clearInterval(timer);
+                    return;
+                }
+                
+                if (isHomePage() && syncHomeVisitFromVercount()) {
+                    clearInterval(timer);
+                    return;
+                }
+                if (attempts > 30) {
+                    clearInterval(timer);
+                    
+                    try {
+                        var cached = localStorage.getItem('home_page_pv');
+                        if (cached) siteVisitEle.textContent = cached;
+                    } catch(_) {}
+                }
+            }, 300);
+            
+            setTimeout(function(){ trySyncSitePv() || (isHomePage() && syncHomeVisitFromVercount()); }, 4000);
+        });
+    })();
+</script>
+
+
+
+
+    </body>
+</html>

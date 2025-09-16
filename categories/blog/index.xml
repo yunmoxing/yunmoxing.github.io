@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Blog on 陨熙然-Blog</title>
+        <link>https://yunmoxing.github.io/categories/blog/</link>
+        <description>Recent content in Blog on 陨熙然-Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>陨熙然-Blog</copyright>
+        <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yunmoxing.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>你好 Hugo</title>
+        <link>https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/</link>
+        <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/</guid>
+        <description>&lt;img src="https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/daniel-sessler-HHRckNv-gK8-unsplash.jpg" alt="Featured image of post 你好 Hugo" /&gt;&lt;h2 id=&#34;致谢&#34;&gt;致谢
+&lt;/h2&gt;&lt;p&gt;本博客前前后后花了一个月左右的时间，第一次见到这么多代码和&lt;del&gt;报错（bushi）&lt;/del&gt;，在此感谢众多大佬的分享（下面展示部分），如果没有你们的帮助，我的博客不会这么完工。&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;莱特雷-letere&lt;/a&gt;  前期导师，让我完成了基本功能 &lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://thirdshire.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;第三夏尔 | Third Shire&lt;/a&gt;主页的热力图归档真的太难实现了&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://liuhouliang.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Liu Houliang的博客&lt;/a&gt; 大佬的观影界面太酷了，感谢代码分享 &lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://yelleis.top/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Yelle🦋&lt;/a&gt; 非常感谢大佬的收集，让我实现了Google地图等多项shortcode功能   &lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://irithys.com/irithys/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;山茶花舍&lt;/a&gt; 我见过的最文艺的博客，没有之一，尝试过介绍的&lt;a class=&#34;link&#34; href=&#34;https://channel.io/en&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;channel.io&lt;/a&gt;聊天气泡，但会覆盖掉主题的功能，遂罢&lt;/p&gt;
+&lt;h2 id=&#34;碎碎念&#34;&gt;碎碎念
+&lt;/h2&gt;&lt;p&gt;这是我的第一篇文章！&lt;br&gt;
+本博客只是基本建成，还有许多bug和功能仍未完成，奈何当前本人才疏学浅，不足以独立处理bug和实现其他博客没有的功能，将就着用吧，哎！&lt;br&gt;
+&amp;ldquo;你好，Hugo&amp;quot;其实并不是我取的名，而是AI生成的示例标题，之前在各种语言的&amp;quot;Hello world&amp;quot;中迷失，没想到转头的第一篇文字主打的博客，也会以&amp;quot;Hello hugo&amp;quot;开始。&lt;br&gt;
+没记错的话，博客应该是大学才接触，从开始的csdn，到后来的51CTO，都不太符合我的审美。后来，专业软件需求越来越多，我也以一个新手小白的身份叩开了GitHub的大门&lt;span class=&#34;blur&#34;&gt;（毕竟有些付费软件还不如开源来的香）&lt;/span&gt;，闲逛时偶尔会闯进别人的网站，有博客网站，也有其他，慢慢的，在心底萌生了写一个个人网站的想法。&lt;br&gt;
+当然，个人介绍也说了，我懒，所以直到这个暑假，百无聊赖之下我才开始了我的计划。但，梦想是美好的，现实是骨感的，我原本看不上静态博客网站，打算用vue3+springboot实现一个超级炫酷的网站，结果创业未半而中道崩殂，因为不了解vue3的语言标准，几天代码修改愣是没改到点上，这时候我才明白没有金刚钻，别揽瓷器活这句话的含义，真的太痛苦了(╥﹏╥)。&lt;br&gt;
+&lt;del&gt;玩了&lt;/del&gt;休整了半个月，终于在暑假还剩10天时了解了hugo，机缘巧合之下闯进了莱特雷大佬的博客，被stack的极简风格深深吸引了，接下来的几天十分顺利，但就在开学前一晚为博客添加功能时意外修改掉了主题的一些默认配置文件，满屏报错，又因为在本地运行且不会使用git，没有提交记录，无奈只能删库。&lt;br&gt;
+开学后到了同一个功能设置时意外成功，结果还没高兴太久，某个功能创建时又一次满屏爆红，但这次学聪明了，新建一个hugo文件而不是直接删库，建站效率大大提高，思路也更清晰，来来回回十几天，感觉该有的功能都有了，看得见的样式问题也修改了，一天几百次的刷新也证明博客网站运转良好，是时候了，部署！&lt;/p&gt;
+&lt;h2 id=&#34;注意&#34;&gt;注意
+&lt;/h2&gt;&lt;div class=&#34;alert-warn&#34;&gt;
+  &lt;blockquote&gt;&lt;p&gt;本站并无特地实现响应式设计，可能只适配大屏设备&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/div&gt;
+
+</description>
+        </item>
+        
+    </channel>
+</rss>
