@@ -15,57 +15,139 @@
         <guid>https://yunmoxing.github.io/%E5%85%B3%E4%BA%8E-about/</guid>
         <description>&lt;img src="https://yunmoxing.github.io/img/title-img/About-title.jpg" alt="Featured image of post 关于 | About" /&gt;&lt;!-- This is a test page for i18n support. --&gt;
 &lt;h2 id=&#34;关于我&#34;&gt;关于我
-&lt;/h2&gt;&lt;p&gt;一介凡人，不好读书，好卧，也喜登高望远，俯瞰诸山，扬觞对月，歌以咏志 &lt;br&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;div class=&#34;alert-tip&#34;&gt;
+  &lt;blockquote&gt;&lt;p&gt;心脏跳动的节拍，或许是宇宙大爆炸后的余震频率&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/div&gt;
+
+一介凡人，不好读书，好卧，也喜登高望远，俯瞰诸山，扬觞对月，歌以咏志 &lt;br&gt;
 喜好颇杂，诸如天文，地理，军事，科学，非遗等等，却多为涉猎，并无深耕&lt;/p&gt;
 &lt;h2 id=&#34;关于本站&#34;&gt;关于本站
-&lt;/h2&gt;&lt;p&gt;欢迎来到我的网站，此博客由【Hugo + Stack】来进行搭建，抄了多位大佬的博客作业，主要分享个人生活&lt;br&gt;
-Hugo版本： hugo_extended_0.148.2_windows-amd64&lt;br&gt;
-Stack主题： 感谢&lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;莱特雷-letere&lt;/a&gt;大佬的推荐，本博客使用hugo-theme-stack-3.30.0版本&lt;br&gt;
-图片来源： 感谢&lt;a class=&#34;link&#34; href=&#34;https://yelleis.top/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/h2&gt;&lt;h4 id=&#34;关于本站名&#34;&gt;关于本站名
+&lt;/h4&gt;&lt;p&gt;&amp;ldquo;陨熙然&amp;quot;这名字其实有点中二，&amp;ldquo;陨&amp;quot;最初来源于《吞噬星空》中的那个星球名称——陨墨星，再加上世间万物那么多迷人的陨落——一鲸落，万物生；超新星爆发，&amp;ldquo;熙然&amp;quot;则是因为高三的一次模拟考试，成语填空题&amp;quot;熙熙攘攘&amp;quot;我竟然忘记怎么写了，于是我发誓记它一辈子，但因为&amp;quot;熙攘&amp;quot;不够文雅，再加上我写错的是&amp;quot;熙&amp;quot;字，遂将&amp;quot;攘&amp;quot;化为&amp;quot;然&amp;rdquo;，取为&amp;quot;熙然&amp;rdquo;，我并不是一个文学底蕴非常深厚的人，取名如此，已是我的极限。&lt;/p&gt;
+&lt;h4 id=&#34;关于本站内容&#34;&gt;关于本站内容
+&lt;/h4&gt;&lt;p&gt;创立博客的初衷其实并没有多高尚，只是因为见过挺多个人网站，羡慕别人可以拥有自己的网站，在我看来这是一件超酷的事情，好歹是个计算机学生，总要有点能拿得出手的玩意吧，于是在&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;，&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;V&lt;/kbd&gt;了多位大佬分享的代码后融合一番，建成了现在这个挺花哨的网站，再静态部署&lt;span class=&#34;blur&#34;&gt;（不会自动部署）&lt;/span&gt;，我也就有了网络世界的一隅小天地。&lt;/p&gt;
+&lt;p&gt;欢迎来到我的网站，此博客由【Hugo + Stack】来进行搭建，主要分享个人生活琐事和一些我明白的技术代码&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Hugo版本： hugo_extended_0.148.2_windows-amd64&lt;/li&gt;
+&lt;li&gt;Stack主题： 感谢&lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;莱特雷-letere&lt;/a&gt;大佬的推荐，本博客使用hugo-theme-stack-3.30.0版本&lt;/li&gt;
+&lt;li&gt;图片来源： 感谢&lt;a class=&#34;link&#34; href=&#34;https://yelleis.top/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Yelle🦋&lt;/a&gt;博主推荐的&lt;a class=&#34;link&#34; href=&#34;https://unsplash.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;unsplash&lt;/a&gt;网站&lt;br&gt;
-「复制」功能的快捷键是：&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;&lt;/p&gt;
+    &gt;unsplash&lt;/a&gt;网站&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;时间轴&#34;&gt;时间轴
-&lt;/h2&gt;&lt;div class=&#34;timeline__row&#34;&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;div class=&#34;timeline__row&#34;&gt;
     &lt;div class=&#34;timeline__time&#34;&gt;
-        &lt;div class=&#34;timeline__time&#34;&gt;2024-10-1&lt;/div&gt;
+        &lt;div class=&#34;timeline__time&#34;&gt;2024-12-24&lt;/div&gt;
         &lt;div class=&#34;timeline__split-line&#34;&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&#34;timeline__content&#34;&gt;
         &lt;div class=&#34;timeline__tags&#34;&gt;
-            &lt;span class=&#34;timeline__tag&#34;&gt;节日&lt;/span&gt;
+            &lt;span class=&#34;timeline__tag&#34;&gt;纪念日&lt;/span&gt;
         &lt;/div&gt;
         &lt;a href=&#34;https://yunmoxing.github.io/&#34;&gt;
-            &lt;div class=&#34;timeline__title&#34;&gt;国庆&lt;/div&gt;
+            &lt;div class=&#34;timeline__title&#34;&gt;遇见网友姐姐&lt;/div&gt;
         &lt;/a&gt;
         
         &lt;div class=&#34;timeline__description&#34;&gt;
-            国庆快乐
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;div class=&#34;timeline__row&#34;&gt;
-    &lt;div class=&#34;timeline__time&#34;&gt;
-        &lt;div class=&#34;timeline__time&#34;&gt;2023-10-1&lt;/div&gt;
-        &lt;div class=&#34;timeline__split-line&#34;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;timeline__content&#34;&gt;
-        &lt;div class=&#34;timeline__tags&#34;&gt;
-            &lt;span class=&#34;timeline__tag&#34;&gt;节日&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;a href=&#34;https://yunmoxing.github.io/&#34;&gt;
-            &lt;div class=&#34;timeline__title&#34;&gt;国庆&lt;/div&gt;
-        &lt;/a&gt;
-        
-        &lt;div class=&#34;timeline__description&#34;&gt;
-            国庆快乐
+            弥补了一直想要个姐姐却没有的缺憾
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&#34;timeline__row&#34;&gt;
     &lt;div class=&#34;timeline__time&#34;&gt;
-        &lt;div class=&#34;timeline__time&#34;&gt;2023-09-1&lt;/div&gt;
+        &lt;div class=&#34;timeline__time&#34;&gt;2024-11-03 ~ 11-06&lt;/div&gt;
+        &lt;div class=&#34;timeline__split-line&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;timeline__content&#34;&gt;
+        &lt;div class=&#34;timeline__tags&#34;&gt;
+            &lt;span class=&#34;timeline__tag&#34;&gt;旅游&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;a href=&#34;https://yunmoxing.github.io/&#34;&gt;
+            &lt;div class=&#34;timeline__title&#34;&gt;南京，苏州，上海三日游&lt;/div&gt;
+        &lt;/a&gt;
+        
+        &lt;div class=&#34;timeline__description&#34;&gt;
+            发生了一些难以说清的事情让这次旅途并不完美
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;timeline__row&#34;&gt;
+    &lt;div class=&#34;timeline__time&#34;&gt;
+        &lt;div class=&#34;timeline__time&#34;&gt;2024-06-01&lt;/div&gt;
+        &lt;div class=&#34;timeline__split-line&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;timeline__content&#34;&gt;
+        &lt;div class=&#34;timeline__tags&#34;&gt;
+            &lt;span class=&#34;timeline__tag&#34;&gt;旅游&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;a href=&#34;https://yunmoxing.github.io/&#34;&gt;
+            &lt;div class=&#34;timeline__title&#34;&gt;爬山&lt;/div&gt;
+        &lt;/a&gt;
+        
+        &lt;div class=&#34;timeline__description&#34;&gt;
+            不累，真的
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;timeline__row&#34;&gt;
+    &lt;div class=&#34;timeline__time&#34;&gt;
+        &lt;div class=&#34;timeline__time&#34;&gt;2024-01-22&lt;/div&gt;
+        &lt;div class=&#34;timeline__split-line&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;timeline__content&#34;&gt;
+        &lt;div class=&#34;timeline__tags&#34;&gt;
+            &lt;span class=&#34;timeline__tag&#34;&gt;日常&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;a href=&#34;https://yunmoxing.github.io/&#34;&gt;
+            &lt;div class=&#34;timeline__title&#34;&gt;落雪&lt;/div&gt;
+        &lt;/a&gt;
+        
+        &lt;div class=&#34;timeline__description&#34;&gt;
+            堆了个雪人，下雪，真好
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;timeline__row&#34;&gt;
+    &lt;div class=&#34;timeline__time&#34;&gt;
+        &lt;div class=&#34;timeline__time&#34;&gt;2023-11-20&lt;/div&gt;
+        &lt;div class=&#34;timeline__split-line&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;timeline__content&#34;&gt;
+        &lt;div class=&#34;timeline__tags&#34;&gt;
+            &lt;span class=&#34;timeline__tag&#34;&gt;纪念日&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;a href=&#34;https://yunmoxing.github.io/static/img/xueren.jpg&#34;&gt;
+            &lt;div class=&#34;timeline__title&#34;&gt;分手&lt;/div&gt;
+        &lt;/a&gt;
+        
+        &lt;div class=&#34;timeline__description&#34;&gt;
+            第一次分手
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;timeline__row&#34;&gt;
+    &lt;div class=&#34;timeline__time&#34;&gt;
+        &lt;div class=&#34;timeline__time&#34;&gt;2023-10-20&lt;/div&gt;
+        &lt;div class=&#34;timeline__split-line&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;timeline__content&#34;&gt;
+        &lt;div class=&#34;timeline__tags&#34;&gt;
+            &lt;span class=&#34;timeline__tag&#34;&gt;纪念日&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;a href=&#34;https://yunmoxing.github.io/&#34;&gt;
+            &lt;div class=&#34;timeline__title&#34;&gt;恋爱&lt;/div&gt;
+        &lt;/a&gt;
+        
+        &lt;div class=&#34;timeline__description&#34;&gt;
+            第一次恋爱
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;timeline__row&#34;&gt;
+    &lt;div class=&#34;timeline__time&#34;&gt;
+        &lt;div class=&#34;timeline__time&#34;&gt;2023-09-01&lt;/div&gt;
         &lt;div class=&#34;timeline__split-line&#34;&gt;&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&#34;timeline__content&#34;&gt;
