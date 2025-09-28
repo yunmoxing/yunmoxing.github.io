@@ -7,13 +7,21 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>陨熙然-Blog</copyright>
-        <lastBuildDate>Sun, 21 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yunmoxing.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 27 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yunmoxing.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Blog</title>
         <link>https://yunmoxing.github.io/categories/blog/</link>
-        <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
+        <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
         
         <guid>https://yunmoxing.github.io/categories/blog/</guid>
         <description>&lt;img src="https://yunmoxing.github.io/categories/blog/Blog.jpg" alt="Featured image of post Blog" /&gt;</description>
+        </item>
+        <item>
+        <title>Hugo</title>
+        <link>https://yunmoxing.github.io/categories/hugo/</link>
+        <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
+        
+        <guid>https://yunmoxing.github.io/categories/hugo/</guid>
+        <description>&lt;img src="https://yunmoxing.github.io/categories/hugo/Hugo.jpg" alt="Featured image of post Hugo" /&gt;</description>
         </item>
         <item>
         <title>Test</title>
