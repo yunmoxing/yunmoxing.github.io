@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://yunmoxing.github.io/categories/hugo/'>
 
-<link rel="stylesheet" href="/scss/style.min.88e0e682979514917c030e575190ca51be25a45743bdb702475c84031b9dc751.css"><meta property='og:title' content="Category: Hugo - 陨熙然-Blog">
+<link rel="stylesheet" href="/scss/style.min.08f1ff63ad8b54c7f9c4781ed97b0f54e7d28371b754c26387ea0ef7ad3832c7.css"><meta property='og:title' content="Category: Hugo - 陨熙然-Blog">
 <meta property='og:description' content="记录Hugo博客的实现方法">
 <meta property='og:url' content='https://yunmoxing.github.io/categories/hugo/'>
 <meta property='og:site_name' content='陨熙然-Blog'>
@@ -862,6 +862,21 @@ class Cursor {
          
         max-height: 400px;
         overflow: hidden;
+    }
+
+     
+    .highlight::before {
+        content: "";
+        display: block !important;
+        background: url('https://yunmoxing.github.io/icons/macOS-code-header.svg') no-repeat left center !important;
+        background-size: 60px 18px !important;
+        height: 18px !important;
+        width: 100% !important;
+        margin-top: -10px !important;
+        margin-bottom: 10px !important;
+        padding-left: 15px !important;
+        position: relative !important;
+        z-index: 1 !important;
     }
 
     .code-show {
