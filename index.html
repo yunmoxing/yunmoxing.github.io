@@ -1343,16 +1343,70 @@ class Cursor {
     </div>
 
     <script>
-        async function fetchHitokoto() {
-            try {
-                const response = await fetch('https://v1.hitokoto.cn');
-                const data = await response.json();
-                const hitokotoText = document.querySelector('#hitokoto-text');
-                hitokotoText.innerHTML = `「${data.hitokoto}」`;
-            } catch (error) {
-                console.error('获取一言失败:', error);
-                document.querySelector('#hitokoto-text').innerHTML = '「我的2024」';
+        async function fetchHitokoto(retries = 3) {
+            const apis = [
+                'https://v1.hitokoto.cn',
+                'https://api.hitokoto.cn',
+                'https://hitokoto.cn/api'
+            ];
+            
+            
+            const localHitokoto = [
+                '生活不是等待暴风雨过去，而是要学会在雨中跳舞。',
+                '不要因为走得太远，忘了我们为什么出发。',
+                '你的时间有限，不要为别人而活。',
+                '成功不是终点，失败也不是末日，继续前进的勇气才最可贵。',
+                '每一个不曾起舞的日子，都是对生命的辜负。',
+                '愿你历经千帆，归来仍是少年。',
+                '山川是不卷收的文章，日月为你掌灯伴读。',
+                '纵然万劫不复，纵然相思入骨，我也待你眉眼如初，岁月如故。',
+                '我们都在阴沟里，但仍有人仰望星空。',
+                '世界以痛吻我，要我报之以歌。'
+            ];
+            
+            for (let i = 0; i < apis.length; i++) {
+                for (let retry = 0; retry < retries; retry++) {
+                    try {
+                        console.log(`尝试获取一言 - API: ${apis[i]}, 重试: ${retry + 1}`);
+                        
+                        
+                        const controller = new AbortController();
+                        const timeoutId = setTimeout(() => controller.abort(), 5000); 
+                        
+                        const response = await fetch(apis[i], {
+                            signal: controller.signal,
+                            headers: {
+                                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                            }
+                        });
+                        
+                        clearTimeout(timeoutId);
+                        
+                        if (!response.ok) {
+                            throw new Error(`HTTP ${response.status}`);
+                        }
+                        
+                        const data = await response.json();
+                        const hitokotoText = document.querySelector('#hitokoto-text');
+                        hitokotoText.innerHTML = `「${data.hitokoto}」`;
+                        console.log('一言获取成功');
+                        return; 
+                        
+                    } catch (error) {
+                        console.warn(`API ${apis[i]} 第 ${retry + 1} 次尝试失败:`, error.message);
+                        
+                        if (retry < retries - 1) {
+                            
+                            await new Promise(resolve => setTimeout(resolve, 1000 * (retry + 1)));
+                        }
+                    }
+                }
             }
+            
+            
+            console.error('所有一言API获取失败，使用本地备用一言');
+            const randomHitokoto = localHitokoto[Math.floor(Math.random() * localHitokoto.length)];
+            document.querySelector('#hitokoto-text').innerHTML = `「${randomHitokoto}」`;
         }
         
         
@@ -2671,7 +2725,6 @@ class Cursor {
         });
     })();
 </script>
-
 
 
     </body>
