@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>陨熙然-Blog</title>
-        <link>https://yunmoxing.github.io/</link>
+        <link>http://localhost:1313/</link>
         <description>Recent content on 陨熙然-Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>陨熙然-Blog</copyright>
-        <lastBuildDate>Sat, 27 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yunmoxing.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 27 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>【Hugo】Hugo &#43; Github 免费部署自己的博客</title>
-        <link>https://yunmoxing.github.io/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+        <link>http://localhost:1313/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
-        <description>&lt;img src="https://yunmoxing.github.io/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/hugo.jpg" alt="Featured image of post 【Hugo】Hugo &#43; Github 免费部署自己的博客" /&gt;&lt;p&gt;参考文章 → &lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>http://localhost:1313/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+        <description>&lt;img src="http://localhost:1313/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/hugo.jpg" alt="Featured image of post 【Hugo】Hugo &#43; Github 免费部署自己的博客" /&gt;&lt;p&gt;参考文章 → &lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;【Hugo】Hugo + Github 免费部署自己的博客&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;准备&#34;&gt;准备
@@ -94,7 +94,7 @@
 &lt;ul&gt;
 &lt;li&gt;(4)敲打命令&lt;code&gt;hugo server -D&lt;/code&gt;启动服务，&lt;kbd&gt;Ctrl&lt;/kbd&gt;
  + &lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
 访问&lt;code&gt;http://localhost:1313&lt;/code&gt;(一般默认是这个端口)，&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;停止服务&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
@@ -219,11 +219,11 @@
         </item>
         <item>
         <title>你好 Hugo</title>
-        <link>https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/</link>
+        <link>http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/</link>
         <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/</guid>
-        <description>&lt;img src="https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/daniel-sessler-HHRckNv-gK8-unsplash.jpg" alt="Featured image of post 你好 Hugo" /&gt;&lt;h2 id=&#34;致谢&#34;&gt;致谢
+        <guid>http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/daniel-sessler-HHRckNv-gK8-unsplash.jpg" alt="Featured image of post 你好 Hugo" /&gt;&lt;h2 id=&#34;致谢&#34;&gt;致谢
 &lt;/h2&gt;&lt;p&gt;本博客前前后后花了一个月左右的时间，第一次见到这么多代码和&lt;del&gt;报错（bushi）&lt;/del&gt;，在此感谢众多大佬的分享（下面展示部分），如果没有你们的帮助，我的博客不会这么完工。&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;莱特雷-letere&lt;/a&gt;  前期导师，让我完成了基本功能 &lt;br&gt;
@@ -254,11 +254,11 @@
         </item>
         <item>
         <title>关于 | About</title>
-        <link>https://yunmoxing.github.io/%E5%85%B3%E4%BA%8E-about/</link>
+        <link>http://localhost:1313/%E5%85%B3%E4%BA%8E-about/</link>
         <pubDate>Fri, 12 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/%E5%85%B3%E4%BA%8E-about/</guid>
-        <description>&lt;img src="https://yunmoxing.github.io/img/title-img/About-title.jpg" alt="Featured image of post 关于 | About" /&gt;&lt;h2 id=&#34;关于我&#34;&gt;关于我
+        <guid>http://localhost:1313/%E5%85%B3%E4%BA%8E-about/</guid>
+        <description>&lt;img src="http://localhost:1313/img/title-img/About-title.jpg" alt="Featured image of post 关于 | About" /&gt;&lt;h2 id=&#34;关于我&#34;&gt;关于我
 &lt;/h2&gt;&lt;p&gt;&lt;div class=&#34;alert-tip&#34;&gt;
   &lt;blockquote&gt;&lt;p&gt;博物馆里褪色的绢本，或许连最精密的仪器都复原不了最初的墨痕&lt;/p&gt;
   &lt;/blockquote&gt;
@@ -266,7 +266,7 @@
 
 一介凡人，04年10月3日生人，不喜读书，好玩，所以现在是名名不见经传大学的名不见经传的大三学生，自作孽，不可活啊╥﹏╥&amp;hellip;&lt;br&gt;
 活了二十有一，还挺年轻，这些年有欢乐也有痛苦，有满足也有遗憾，&lt;del&gt;篇幅有限&lt;/del&gt;（纯懒，嘿嘿），不多赘述   &lt;br&gt;
-喜好颇杂，诸如天文，地理，军事，科学，非遗，国漫，赛车，航天等等，却多为涉猎，并无深耕（翻译成现代汉语就是都了解一点，但都不想多了解一点），爱看点小说，尤其喜欢汪曾祺老先生的作品（昆明这辈子得去逛逛），如果有同样爱好，鄙人也是非常欢迎&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://yunmoxing.github.io/img/yanQQ.png&#34; style=&#34;color: #00a8ff; text-decoration: none; border-bottom: 1px dashed #00a8ff;&#34;&gt;QQ&lt;/a&gt;或&lt;a data-fancybox=&#34;gallery&#34; href=&#34;https://yunmoxing.github.io/img/yunxiran.png&#34; style=&#34;color: #07c160; text-decoration: none; border-bottom: 1px dashed #07c160;&#34;&gt;微信&lt;/a&gt;互相交流的&lt;/p&gt;
+喜好颇杂，诸如天文，地理，军事，科学，非遗，国漫，赛车，航天等等，却多为涉猎，并无深耕（翻译成现代汉语就是都了解一点，但都不想多了解一点），爱看点小说，尤其喜欢汪曾祺老先生的作品（昆明这辈子得去逛逛），如果有同样爱好，鄙人也是非常欢迎&lt;a data-fancybox=&#34;gallery&#34; href=&#34;http://localhost:1313/img/yanQQ.png&#34; style=&#34;color: #00a8ff; text-decoration: none; border-bottom: 1px dashed #00a8ff;&#34;&gt;QQ&lt;/a&gt;或&lt;a data-fancybox=&#34;gallery&#34; href=&#34;http://localhost:1313/img/yunxiran.png&#34; style=&#34;color: #07c160; text-decoration: none; border-bottom: 1px dashed #07c160;&#34;&gt;微信&lt;/a&gt;互相交流的&lt;/p&gt;
 &lt;h2 id=&#34;关于本站&#34;&gt;关于本站
 &lt;/h2&gt;&lt;h4 id=&#34;关于本站名&#34;&gt;关于本站名
 &lt;/h4&gt;&lt;p&gt;&amp;ldquo;陨熙然&amp;quot;这名字其实有点中二，&amp;ldquo;陨&amp;quot;最初来源于《吞噬星空》中的那颗星球名称——陨墨星，&amp;ldquo;陨&amp;quot;在我看来充斥着神秘，迷人又悲壮的色彩，自然界中的&amp;quot;一鲸落，万物生&amp;rdquo;，象冢；宇宙中的陨石，陨冰，陨铁，看似消亡却是另种形式的又一次新生——超新星爆发，&amp;ldquo;熙然&amp;quot;则是因为高三的一次模拟考试，成语填空题&amp;quot;熙熙攘攘&amp;quot;我竟然忘记怎么写了，于是发誓记它一辈子，但因为&amp;quot;熙攘&amp;quot;不够文艺，且写错的是&amp;quot;熙&amp;quot;字，遂将&amp;quot;攘&amp;quot;化为&amp;quot;然&amp;rdquo;，取为&amp;quot;熙然&amp;rdquo;，我并不是一个文学底蕴非常深厚的人，尤其是上了大学脑子格式化后，取名如此，已是极限。&lt;/p&gt;
@@ -372,10 +372,10 @@
         &lt;/div&gt;
         
                 &lt;figure class=&#34;gallery-video&#34; style=&#34;display:none;&#34;&gt;
-                    &lt;video data-video-src=&#34;https://yunmoxing.github.io/videos/timeline/3%e6%9c%889%e6%97%a5.mp4&#34; width=&#34;640&#34; height=&#34;360&#34; controls poster=&#34;&#34; &gt;&lt;/video&gt;
+                    &lt;video data-video-src=&#34;http://localhost:1313/videos/timeline/3%e6%9c%889%e6%97%a5.mp4&#34; width=&#34;640&#34; height=&#34;360&#34; controls poster=&#34;&#34; &gt;&lt;/video&gt;
                     &lt;figcaption&gt;遇见网友姐姐&lt;/figcaption&gt;
                 &lt;/figure&gt;
-                &lt;a href=&#34;https://yunmoxing.github.io/videos/timeline/3%e6%9c%889%e6%97%a5.mp4&#34; title=&#34;遇见网友姐姐&#34;&gt;
+                &lt;a href=&#34;http://localhost:1313/videos/timeline/3%e6%9c%889%e6%97%a5.mp4&#34; title=&#34;遇见网友姐姐&#34;&gt;
                     &lt;div class=&#34;timeline__title&#34;&gt;遇见网友姐姐&lt;/div&gt;
                 &lt;/a&gt;
         &lt;div class=&#34;timeline__description&#34;&gt;
@@ -423,7 +423,7 @@
             &lt;span class=&#34;timeline__tag&#34;&gt;日常&lt;/span&gt;
         &lt;/div&gt;
         
-                &lt;a href=&#34;https://yunmoxing.github.io/img/xueren.png&#34; data-fancybox=&#34;gallery&#34; title=&#34;落雪&#34;&gt;
+                &lt;a href=&#34;http://localhost:1313/img/xueren.png&#34; data-fancybox=&#34;gallery&#34; title=&#34;落雪&#34;&gt;
                     &lt;div class=&#34;timeline__title&#34;&gt;落雪&lt;/div&gt;
                 &lt;/a&gt;
         &lt;div class=&#34;timeline__description&#34;&gt;
@@ -441,7 +441,7 @@
             &lt;span class=&#34;timeline__tag&#34;&gt;纪念日&lt;/span&gt;
         &lt;/div&gt;
         
-                &lt;a href=&#34;https://yunmoxing.github.io/img/luoxue.png&#34; data-fancybox=&#34;gallery&#34; title=&#34;分手&#34;&gt;
+                &lt;a href=&#34;http://localhost:1313/img/luoxue.png&#34; data-fancybox=&#34;gallery&#34; title=&#34;分手&#34;&gt;
                     &lt;div class=&#34;timeline__title&#34;&gt;分手&lt;/div&gt;
                 &lt;/a&gt;
         &lt;div class=&#34;timeline__description&#34;&gt;
@@ -492,11 +492,11 @@
         </item>
         <item>
         <title>Chinese Test</title>
-        <link>https://yunmoxing.github.io/p/test-chinese/</link>
+        <link>http://localhost:1313/p/test-chinese/</link>
         <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/p/test-chinese/</guid>
-        <description>&lt;img src="https://yunmoxing.github.io/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Chinese Test" /&gt;&lt;hr&gt;
+        <guid>http://localhost:1313/p/test-chinese/</guid>
+        <description>&lt;img src="http://localhost:1313/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Chinese Test" /&gt;&lt;hr&gt;
 
 
 
@@ -900,16 +900,16 @@
 &lt;/h2&gt;&lt;h3 id=&#34;鼠标样式使用shubiaopng图片&#34;&gt;鼠标样式（使用shubiao.png图片）
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
  - 鼠标左键&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;
  - 鼠标右键&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;中键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;中键&lt;/span&gt;&lt;/span&gt;
  - 鼠标中键&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;滚轮&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;滚轮&lt;/span&gt;&lt;/span&gt;
  - 鼠标滚轮&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;键盘样式&#34;&gt;键盘样式
@@ -930,18 +930,18 @@
 &lt;h3 id=&#34;组合使用示例&#34;&gt;组合使用示例
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;div class=&#34;mouse-keyboard-combo mouse-keyboard-size-normal&#34;&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-      &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Ctrl&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
+      &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Ctrl&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
     &lt;kbd class=&#34;keyboard-key&#34;&gt;C&lt;/kbd&gt;&lt;/div&gt;
  - 左键选择后复制&lt;/li&gt;
 &lt;li&gt;&lt;div class=&#34;mouse-keyboard-combo mouse-keyboard-size-normal&#34;&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-      &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Alt&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
+      &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Alt&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
     &lt;kbd class=&#34;keyboard-key&#34;&gt;Tab&lt;/kbd&gt;&lt;/div&gt;
  - 右键后切换窗口&lt;/li&gt;
 &lt;li&gt;&lt;div class=&#34;mouse-keyboard-combo mouse-keyboard-size-normal&#34;&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Win&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
     &lt;kbd class=&#34;keyboard-key&#34;&gt;R&lt;/kbd&gt;&lt;/div&gt;
  - 纯键盘组合&lt;/li&gt;
 &lt;li&gt;&lt;div class=&#34;mouse-keyboard-combo mouse-keyboard-size-normal&#34;&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-      &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;点击&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Ctrl&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
+      &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;点击&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Ctrl&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
     &lt;kbd class=&#34;keyboard-key&#34;&gt;S&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
     &lt;kbd class=&#34;keyboard-key&#34;&gt;保存&lt;/kbd&gt;&lt;/div&gt;
  - 三键组合&lt;/li&gt;
@@ -949,7 +949,7 @@
 &lt;h3 id=&#34;单独使用示例&#34;&gt;单独使用示例
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;使用&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
 选择文本，然后按&lt;kbd&gt;Ctrl&lt;/kbd&gt;
  + &lt;kbd&gt;C&lt;/kbd&gt;
 复制&lt;/li&gt;
@@ -957,7 +957,7 @@
  + &lt;kbd&gt;R&lt;/kbd&gt;
 打开运行对话框&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;
 点击桌面可以打开上下文菜单&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;图片&#34;&gt;图片
@@ -1170,19 +1170,19 @@
         </item>
         <item>
         <title>归档&amp;分类 | Archives</title>
-        <link>https://yunmoxing.github.io/archives/</link>
+        <link>http://localhost:1313/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/archives/</guid>
+        <guid>http://localhost:1313/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Emoji Support</title>
-        <link>https://yunmoxing.github.io/p/emoji-support/</link>
+        <link>http://localhost:1313/p/emoji-support/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/p/emoji-support/</guid>
-        <description>&lt;img src="https://yunmoxing.github.io/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
+        <guid>http://localhost:1313/p/emoji-support/</guid>
+        <description>&lt;img src="http://localhost:1313/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
 &lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/functions/emojify/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;code&gt;emojify&lt;/code&gt;&lt;/a&gt; function can be called directly in templates or &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/templates/shortcode-templates/#inline-shortcodes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Inline Shortcodes&lt;/a&gt;.&lt;/p&gt;
@@ -1209,12 +1209,12 @@
         </item>
         <item>
         <title>链接 | Links</title>
-        <link>https://yunmoxing.github.io/%E9%93%BE%E6%8E%A5-links/</link>
+        <link>http://localhost:1313/%E9%93%BE%E6%8E%A5-links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/%E9%93%BE%E6%8E%A5-links/</guid>
+        <guid>http://localhost:1313/%E9%93%BE%E6%8E%A5-links/</guid>
         <description>&lt;!-- To use this feature, add `links` section to frontmatter. --&gt;
-&lt;p&gt;在此页面留言即可，邮箱懒得搞~~~ 或者访问&lt;a class=&#34;link&#34; href=&#34;https://yunmoxing.github.io/apps/&#34; &gt;软件页面&lt;/a&gt;查看软件推荐&lt;/p&gt;
+&lt;p&gt;在此页面留言即可，邮箱懒得搞~~~ 或者访问&lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/apps/&#34; &gt;软件页面&lt;/a&gt;查看软件推荐&lt;/p&gt;
 &lt;div class=&#34;alert-tip&#34;&gt;
   &lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;名称&lt;/strong&gt; : GitHub&lt;br&gt;
 &lt;strong&gt;简介&lt;/strong&gt; : GitHub 是全球最大的软件开发平台&lt;br&gt;
@@ -1229,43 +1229,43 @@
         </item>
         <item>
         <title>软件 | Apps</title>
-        <link>https://yunmoxing.github.io/apps/</link>
+        <link>http://localhost:1313/apps/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/apps/</guid>
+        <guid>http://localhost:1313/apps/</guid>
         <description>&lt;p&gt;提供一些自认为挺好用的软件，只是简单介绍，感兴趣的话可以点击软件名称跳转到对应网址详细了解，也欢迎在评论区提供未列出的其它实用软件( 2025-09-23 更新 )&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>搜索 | Search</title>
-        <link>https://yunmoxing.github.io/search/</link>
+        <link>http://localhost:1313/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/search/</guid>
+        <guid>http://localhost:1313/search/</guid>
         <description></description>
         </item>
         <item>
         <title>相册 | photos</title>
-        <link>https://yunmoxing.github.io/photos/</link>
+        <link>http://localhost:1313/photos/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/photos/</guid>
+        <guid>http://localhost:1313/photos/</guid>
         <description></description>
         </item>
         <item>
         <title>影音 | Movies</title>
-        <link>https://yunmoxing.github.io/movies/</link>
+        <link>http://localhost:1313/movies/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/movies/</guid>
+        <guid>http://localhost:1313/movies/</guid>
         <description></description>
         </item>
         <item>
         <title>装备 | goods</title>
-        <link>https://yunmoxing.github.io/goods/</link>
+        <link>http://localhost:1313/goods/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/goods/</guid>
+        <guid>http://localhost:1313/goods/</guid>
         <description></description>
         </item>
         

@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Blog on 陨熙然-Blog</title>
-        <link>https://yunmoxing.github.io/categories/blog/</link>
+        <link>http://localhost:1313/categories/blog/</link>
         <description>Recent content in Blog on 陨熙然-Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>陨熙然-Blog</copyright>
-        <lastBuildDate>Sat, 27 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yunmoxing.github.io/categories/blog/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 27 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/blog/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>【Hugo】Hugo &#43; Github 免费部署自己的博客</title>
-        <link>https://yunmoxing.github.io/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
+        <link>http://localhost:1313/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
-        <description>&lt;img src="https://yunmoxing.github.io/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/hugo.jpg" alt="Featured image of post 【Hugo】Hugo &#43; Github 免费部署自己的博客" /&gt;&lt;p&gt;参考文章 → &lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>http://localhost:1313/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</guid>
+        <description>&lt;img src="http://localhost:1313/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/hugo.jpg" alt="Featured image of post 【Hugo】Hugo &#43; Github 免费部署自己的博客" /&gt;&lt;p&gt;参考文章 → &lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/p/hugo/custom-blog/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;【Hugo】Hugo + Github 免费部署自己的博客&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;准备&#34;&gt;准备
@@ -94,7 +94,7 @@
 &lt;ul&gt;
 &lt;li&gt;(4)敲打命令&lt;code&gt;hugo server -D&lt;/code&gt;启动服务，&lt;kbd&gt;Ctrl&lt;/kbd&gt;
  + &lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
 访问&lt;code&gt;http://localhost:1313&lt;/code&gt;(一般默认是这个端口)，&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;停止服务&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;
@@ -219,11 +219,11 @@
         </item>
         <item>
         <title>你好 Hugo</title>
-        <link>https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/</link>
+        <link>http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/</link>
         <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/</guid>
-        <description>&lt;img src="https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/daniel-sessler-HHRckNv-gK8-unsplash.jpg" alt="Featured image of post 你好 Hugo" /&gt;&lt;h2 id=&#34;致谢&#34;&gt;致谢
+        <guid>http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/daniel-sessler-HHRckNv-gK8-unsplash.jpg" alt="Featured image of post 你好 Hugo" /&gt;&lt;h2 id=&#34;致谢&#34;&gt;致谢
 &lt;/h2&gt;&lt;p&gt;本博客前前后后花了一个月左右的时间，第一次见到这么多代码和&lt;del&gt;报错（bushi）&lt;/del&gt;，在此感谢众多大佬的分享（下面展示部分），如果没有你们的帮助，我的博客不会这么完工。&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;莱特雷-letere&lt;/a&gt;  前期导师，让我完成了基本功能 &lt;br&gt;

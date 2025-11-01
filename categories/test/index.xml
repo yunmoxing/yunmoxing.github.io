@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Test on 陨熙然-Blog</title>
-        <link>https://yunmoxing.github.io/categories/test/</link>
+        <link>http://localhost:1313/categories/test/</link>
         <description>Recent content in Test on 陨熙然-Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>陨熙然-Blog</copyright>
-        <lastBuildDate>Sun, 21 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yunmoxing.github.io/categories/test/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 21 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/test/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>你好 Hugo</title>
-        <link>https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/</link>
+        <link>http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/</link>
         <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/</guid>
-        <description>&lt;img src="https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/daniel-sessler-HHRckNv-gK8-unsplash.jpg" alt="Featured image of post 你好 Hugo" /&gt;&lt;h2 id=&#34;致谢&#34;&gt;致谢
+        <guid>http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/daniel-sessler-HHRckNv-gK8-unsplash.jpg" alt="Featured image of post 你好 Hugo" /&gt;&lt;h2 id=&#34;致谢&#34;&gt;致谢
 &lt;/h2&gt;&lt;p&gt;本博客前前后后花了一个月左右的时间，第一次见到这么多代码和&lt;del&gt;报错（bushi）&lt;/del&gt;，在此感谢众多大佬的分享（下面展示部分），如果没有你们的帮助，我的博客不会这么完工。&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;莱特雷-letere&lt;/a&gt;  前期导师，让我完成了基本功能 &lt;br&gt;
@@ -44,11 +44,11 @@
         </item>
         <item>
         <title>Chinese Test</title>
-        <link>https://yunmoxing.github.io/p/test-chinese/</link>
+        <link>http://localhost:1313/p/test-chinese/</link>
         <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/p/test-chinese/</guid>
-        <description>&lt;img src="https://yunmoxing.github.io/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Chinese Test" /&gt;&lt;hr&gt;
+        <guid>http://localhost:1313/p/test-chinese/</guid>
+        <description>&lt;img src="http://localhost:1313/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Chinese Test" /&gt;&lt;hr&gt;
 
 
 
@@ -452,16 +452,16 @@
 &lt;/h2&gt;&lt;h3 id=&#34;鼠标样式使用shubiaopng图片&#34;&gt;鼠标样式（使用shubiao.png图片）
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
  - 鼠标左键&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;
  - 鼠标右键&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;中键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;中键&lt;/span&gt;&lt;/span&gt;
  - 鼠标中键&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;滚轮&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;滚轮&lt;/span&gt;&lt;/span&gt;
  - 鼠标滚轮&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;键盘样式&#34;&gt;键盘样式
@@ -482,18 +482,18 @@
 &lt;h3 id=&#34;组合使用示例&#34;&gt;组合使用示例
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;&lt;div class=&#34;mouse-keyboard-combo mouse-keyboard-size-normal&#34;&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-      &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Ctrl&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
+      &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Ctrl&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
     &lt;kbd class=&#34;keyboard-key&#34;&gt;C&lt;/kbd&gt;&lt;/div&gt;
  - 左键选择后复制&lt;/li&gt;
 &lt;li&gt;&lt;div class=&#34;mouse-keyboard-combo mouse-keyboard-size-normal&#34;&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-      &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Alt&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
+      &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Alt&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
     &lt;kbd class=&#34;keyboard-key&#34;&gt;Tab&lt;/kbd&gt;&lt;/div&gt;
  - 右键后切换窗口&lt;/li&gt;
 &lt;li&gt;&lt;div class=&#34;mouse-keyboard-combo mouse-keyboard-size-normal&#34;&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Win&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
     &lt;kbd class=&#34;keyboard-key&#34;&gt;R&lt;/kbd&gt;&lt;/div&gt;
  - 纯键盘组合&lt;/li&gt;
 &lt;li&gt;&lt;div class=&#34;mouse-keyboard-combo mouse-keyboard-size-normal&#34;&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-      &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;点击&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Ctrl&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
+      &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;点击&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;&lt;kbd class=&#34;keyboard-key&#34;&gt;Ctrl&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
     &lt;kbd class=&#34;keyboard-key&#34;&gt;S&lt;/kbd&gt;&lt;span class=&#34;combo-separator&#34;&gt;&amp;#43;&lt;/span&gt;
     &lt;kbd class=&#34;keyboard-key&#34;&gt;保存&lt;/kbd&gt;&lt;/div&gt;
  - 三键组合&lt;/li&gt;
@@ -501,7 +501,7 @@
 &lt;h3 id=&#34;单独使用示例&#34;&gt;单独使用示例
 &lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;使用&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;左键&lt;/span&gt;&lt;/span&gt;
 选择文本，然后按&lt;kbd&gt;Ctrl&lt;/kbd&gt;
  + &lt;kbd&gt;C&lt;/kbd&gt;
 复制&lt;/li&gt;
@@ -509,7 +509,7 @@
  + &lt;kbd&gt;R&lt;/kbd&gt;
 打开运行对话框&lt;/li&gt;
 &lt;li&gt;&lt;span class=&#34;mouse-container mouse-size-normal&#34;&gt;
-  &lt;img src=&#34;https://yunmoxing.github.io/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;
+  &lt;img src=&#34;http://localhost:1313/img/shubiao.png&#34; alt=&#34;鼠标&#34; class=&#34;mouse-icon&#34; /&gt;&lt;span class=&#34;mouse-text&#34;&gt;右键&lt;/span&gt;&lt;/span&gt;
 点击桌面可以打开上下文菜单&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;图片&#34;&gt;图片
@@ -722,11 +722,11 @@
         </item>
         <item>
         <title>Emoji Support</title>
-        <link>https://yunmoxing.github.io/p/emoji-support/</link>
+        <link>http://localhost:1313/p/emoji-support/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/p/emoji-support/</guid>
-        <description>&lt;img src="https://yunmoxing.github.io/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
+        <guid>http://localhost:1313/p/emoji-support/</guid>
+        <description>&lt;img src="http://localhost:1313/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
 &lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/functions/emojify/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;code&gt;emojify&lt;/code&gt;&lt;/a&gt; function can be called directly in templates or &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/templates/shortcode-templates/#inline-shortcodes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Inline Shortcodes&lt;/a&gt;.&lt;/p&gt;
