@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Ji&#39;che on 陨熙然-Blog</title>
+        <link>http://localhost:9327/tags/jiche/</link>
+        <description>Recent content in Ji&#39;che on 陨熙然-Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>陨熙然-Blog</copyright><atom:link href="http://localhost:9327/tags/jiche/index.xml" rel="self" type="application/rss+xml" />
+    </channel>
+</rss>

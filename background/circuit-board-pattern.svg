@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="60" height="60" fill="#e8e8ea"/>
+      <path d="M0 15h60 M0 30h60 M0 45h60" stroke="#c8c8cc" stroke-width="0.6" fill="none"/>
+      <path d="M15 0v60 M30 0v60 M45 0v60" stroke="#c8c8cc" stroke-width="0.6" fill="none"/>
+      <path d="M0 0l60 60 M0 20l40 60 M20 0l60 40" stroke="#d0d0d4" stroke-width="0.4" fill="none"/>
+      <path d="M60 0L0 60 M60 20L20 60 M40 0L0 40" stroke="#d0d0d4" stroke-width="0.4" fill="none"/>
+      <circle cx="15" cy="15" r="1.2" fill="#b0b0b6"/>
+      <circle cx="30" cy="15" r="1.2" fill="#b0b0b6"/>
+      <circle cx="45" cy="15" r="1.2" fill="#b0b0b6"/>
+      <circle cx="15" cy="30" r="1.2" fill="#b0b0b6"/>
+      <circle cx="30" cy="30" r="1.2" fill="#b0b0b6"/>
+      <circle cx="45" cy="30" r="1.2" fill="#b0b0b6"/>
+      <circle cx="15" cy="45" r="1.2" fill="#b0b0b6"/>
+      <circle cx="30" cy="45" r="1.2" fill="#b0b0b6"/>
+      <circle cx="45" cy="45" r="1.2" fill="#b0b0b6"/>
+      <circle cx="0" cy="0" r="1" fill="none" stroke="#a8a8ae" stroke-width="0.5"/>
+      <circle cx="60" cy="0" r="1" fill="none" stroke="#a8a8ae" stroke-width="0.5"/>
+      <circle cx="0" cy="60" r="1" fill="none" stroke="#a8a8ae" stroke-width="0.5"/>
+      <circle cx="60" cy="60" r="1" fill="none" stroke="#a8a8ae" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="60" height="60" fill="url(#grid)"/>
+</svg>
