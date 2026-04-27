@@ -6,7 +6,7 @@
         <description>Recent content in Pages on 陨熙然-Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
-        <copyright>陨熙然-Blog</copyright>
+        <copyright>陨熙然</copyright>
         <lastBuildDate>Fri, 26 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yunmoxing.github.io/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>关于|About</title>
         <link>https://yunmoxing.github.io/%E5%85%B3%E4%BA%8Eabout/</link>
@@ -252,6 +252,45 @@
         
         <guid>https://yunmoxing.github.io/archives/</guid>
         <description></description>
+        </item>
+        <item>
+        <title>更新日志|Logs</title>
+        <link>https://yunmoxing.github.io/logs/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://yunmoxing.github.io/logs/</guid>
+        <description>&lt;div align=&#34;center&#34;&gt;
+&lt;h2 id=&#34;更新日志logs&#34;&gt;更新日志|Logs
+&lt;/h2&gt;&lt;hr&gt;
+&lt;/div&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;功能&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;完成时间&lt;/th&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;备注&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;统一键盘标签 &lt;code&gt;kbd&lt;/code&gt; 样式&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2026.04.27&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;切换为更完整的一套样式定义&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;表格隔行与边框改为淡蓝配色&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2026.04.27&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;与当前页面整体色调保持一致&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;添加更新日志&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;2026.04.27&lt;/td&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;模板灵感来源于&lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/update-log/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;莱特雷-letere&lt;/a&gt;大佬&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
         </item>
         <item>
         <title>链接|Links</title>

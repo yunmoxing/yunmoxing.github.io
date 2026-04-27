@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://yunmoxing.github.io/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/'>
 
-<link rel="stylesheet" href="/scss/style.min.8ed27f14438bb6cfa9e37460d0f8d1708d381fb0781ce24ff514624585039cb0.css"><meta property='og:title' content="【Hugo】Hugo + Github 免费部署自己的博客">
+<link rel="stylesheet" href="/scss/style.min.89810f4d802fe4b96ec2a503d6cb5cec516bfa8d94c432b3c4545dfc4a8c8eb9.css"><meta property='og:title' content="【Hugo】Hugo + Github 免费部署自己的博客">
 <meta property='og:description' content="hugo- D在Github上部署静态页面，来免费搭建自己的博客">
 <meta property='og:url' content='https://yunmoxing.github.io/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/'>
 <meta property='og:site_name' content='陨熙然-Blog'>
@@ -663,6 +663,18 @@ class Cursor {
             </a>
         </li>
         
+        
+        <li >
+            <a href='/logs/' >
+                
+                
+                
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-logs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 12h.01" /><path d="M4 6h.01" /><path d="M4 18h.01" /><path d="M8 18h2" /><path d="M8 12h2" /><path d="M8 6h2" /><path d="M14 6h6" /><path d="M14 12h6" /><path d="M14 18h6" /></svg>
+                
+                <span>更新日志|Logs</span>
+            </a>
+        </li>
+        
         <li class="menu-bottom-section">
             <ol class="menu">
 
@@ -816,7 +828,7 @@ class Cursor {
             <div class="article-time--wordcount">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-pencil-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /><path d="M13.5 6.5l4 4" /><path d="M16 19h6" /></svg>
                 <span class="article-word-count">
-                    1054 字
+                    1046 字
                 </span>
             </div>
         
@@ -936,24 +948,10 @@ class Cursor {
 </h3><p><kbd>Win</kbd>
  + <kbd>R</kbd>
 打开运行窗口，输入cmd打开控制台，再分别输入以下命令查看是否安装成功（出现版本号）</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo version
-</span></span></code></pre></td></tr></table>
-</div>
-</div><br>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git --version
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="搭建博客">搭建博客
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo version
+</span></span></code></pre></div><br>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git --version
+</span></span></code></pre></div><h2 id="搭建博客">搭建博客
 </h2><h3 id="创建博客">创建博客
 </h3><ul>
 <li>(1)在hugo.exe所在文件夹的地址栏敲打cmd唤起命令行</li>
@@ -1076,25 +1074,13 @@ class Cursor {
 </div>
 
 </p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">git init
-</span></span><span class="line"><span class="cl">git add .
-</span></span><span class="line"><span class="cl">git commit -m &#34;first commit&#34;
-</span></span><span class="line"><span class="cl">git branch -M main
-</span></span><span class="line"><span class="cl">git remote add origin {你的github仓库地址}
-</span></span><span class="line"><span class="cl">git push -u origin main
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">git init
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git add .
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git commit -m &#34;first commit&#34;
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git branch -M main
+</span></span><span class="line"><span class="ln">5</span><span class="cl">git remote add origin {你的github仓库地址}
+</span></span><span class="line"><span class="ln">6</span><span class="cl">git push -u origin main
+</span></span></code></pre></div><ul>
 <li>(5)上传成功后访问 <strong>https://{github用户名}.github.io</strong>，成功搭建属于自己的Hugo博客</li>
 </ul>
 <div class="alert-warn">
@@ -1262,7 +1248,7 @@ class Cursor {
         
             2025 - 
         
-        2026 陨熙然-Blog
+        2026 陨熙然
     </section>
     
     <section class="powerby">
@@ -1271,7 +1257,7 @@ class Cursor {
         
 
         
-        <span class="site-stats">共发表 6 篇文章・总计 5.87k 字</span> <br/>
+        <span class="site-stats">共发表 6 篇文章・总计 7.89k 字</span> <br/>
         
 
         
@@ -1521,13 +1507,11 @@ class Cursor {
     .highlight::before {
         content: "";
         display: block !important;
-        background: url('https://yunmoxing.github.io/icons/macOS-code-header.svg') no-repeat left center !important;
-        background-size: 60px 18px !important;
+        background: url('https://yunmoxing.github.io/icons/macOS-code-header.svg') no-repeat 0 !important;
+        background-size: contain !important;
         height: 18px !important;
-        width: 100% !important;
         margin-top: -10px !important;
         margin-bottom: 10px !important;
-        padding-left: 15px !important;
         position: relative !important;
         z-index: 1 !important;
     }
@@ -1641,9 +1625,26 @@ class Cursor {
         .article-content code,
         .article-content pre,
         .article-content pre code,
-        .article-content .highlight pre {
+        .article-content .highlight pre,
+        .article-content .highlight .chroma,
+        .article-content .highlight .chroma .lnt,
+        .article-content .highlight .chroma .ln,
+        .article-content .highlight .chroma .cl,
+        .article-content .highlight .chroma .line {
             font-size: 1.6rem !important;
             line-height: 1.4 !important;
+        }
+
+        .article-content .highlight pre,
+        .article-content .highlight pre code,
+        .article-content .highlight .chroma,
+        .article-content .highlight .chroma .lnt,
+        .article-content .highlight .chroma .ln,
+        .article-content .highlight .chroma .cl,
+        .article-content .highlight .chroma .line {
+            white-space: pre !important;
+            word-break: normal !important;
+            overflow-wrap: normal !important;
         }
 
          
@@ -2323,7 +2324,6 @@ class Cursor {
         });
     })();
 </script>
-
 
 
 <div id="jsi-flying-fish-container"></div>

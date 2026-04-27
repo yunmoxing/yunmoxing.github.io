@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='https://yunmoxing.github.io/p/emoji-support/'>
 
-<link rel="stylesheet" href="/scss/style.min.8ed27f14438bb6cfa9e37460d0f8d1708d381fb0781ce24ff514624585039cb0.css"><meta property='og:title' content="Emoji Support">
+<link rel="stylesheet" href="/scss/style.min.89810f4d802fe4b96ec2a503d6cb5cec516bfa8d94c432b3c4545dfc4a8c8eb9.css"><meta property='og:title' content="Emoji Support">
 <meta property='og:description' content="Guide to emoji usage in Hugo">
 <meta property='og:url' content='https://yunmoxing.github.io/p/emoji-support/'>
 <meta property='og:site_name' content='陨熙然-Blog'>
@@ -663,6 +663,18 @@ class Cursor {
             </a>
         </li>
         
+        
+        <li >
+            <a href='/logs/' >
+                
+                
+                
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-logs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 12h.01" /><path d="M4 6h.01" /><path d="M4 18h.01" /><path d="M8 18h2" /><path d="M8 12h2" /><path d="M8 6h2" /><path d="M14 6h6" /><path d="M14 12h6" /><path d="M14 18h6" /></svg>
+                
+                <span>更新日志|Logs</span>
+            </a>
+        </li>
+        
         <li class="menu-bottom-section">
             <ol class="menu">
 
@@ -772,7 +784,7 @@ class Cursor {
             <div class="article-time--wordcount">
                 <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-pencil-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /><path d="M13.5 6.5l4 4" /><path d="M16 19h6" /></svg>
                 <span class="article-word-count">
-                    132 字
+                    130 字
                 </span>
             </div>
         
@@ -831,18 +843,9 @@ class Cursor {
     >Emoji cheat sheet</a> is a useful reference for emoji shorthand codes.</p>
 <hr>
 <p><strong>N.B.</strong> The above steps enable Unicode Standard emoji characters and sequences in Hugo, however the rendering of these glyphs depends on the browser and the platform. To style the emoji you can either use a third party emoji font or a font stack; e.g.</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">.emoji {
-</span></span><span class="line"><span class="cl">  font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
-</span></span><span class="line"><span class="cl">}</span></span></code></pre></td></tr></table>
-</div>
-</div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln">1</span><span class="cl">.emoji {
+</span></span><span class="line"><span class="ln">2</span><span class="cl">  font-family: Apple Color Emoji, Segoe UI Emoji, NotoColorEmoji, Segoe UI Symbol, Android Emoji, EmojiSymbols;
+</span></span><span class="line"><span class="ln">3</span><span class="cl">}</span></span></code></pre></div>
 </section>
 
 
@@ -1002,7 +1005,7 @@ class Cursor {
         
             2025 - 
         
-        2026 陨熙然-Blog
+        2026 陨熙然
     </section>
     
     <section class="powerby">
@@ -1011,7 +1014,7 @@ class Cursor {
         
 
         
-        <span class="site-stats">共发表 6 篇文章・总计 5.87k 字</span> <br/>
+        <span class="site-stats">共发表 6 篇文章・总计 7.89k 字</span> <br/>
         
 
         
@@ -1261,13 +1264,11 @@ class Cursor {
     .highlight::before {
         content: "";
         display: block !important;
-        background: url('https://yunmoxing.github.io/icons/macOS-code-header.svg') no-repeat left center !important;
-        background-size: 60px 18px !important;
+        background: url('https://yunmoxing.github.io/icons/macOS-code-header.svg') no-repeat 0 !important;
+        background-size: contain !important;
         height: 18px !important;
-        width: 100% !important;
         margin-top: -10px !important;
         margin-bottom: 10px !important;
-        padding-left: 15px !important;
         position: relative !important;
         z-index: 1 !important;
     }
@@ -1381,9 +1382,26 @@ class Cursor {
         .article-content code,
         .article-content pre,
         .article-content pre code,
-        .article-content .highlight pre {
+        .article-content .highlight pre,
+        .article-content .highlight .chroma,
+        .article-content .highlight .chroma .lnt,
+        .article-content .highlight .chroma .ln,
+        .article-content .highlight .chroma .cl,
+        .article-content .highlight .chroma .line {
             font-size: 1.6rem !important;
             line-height: 1.4 !important;
+        }
+
+        .article-content .highlight pre,
+        .article-content .highlight pre code,
+        .article-content .highlight .chroma,
+        .article-content .highlight .chroma .lnt,
+        .article-content .highlight .chroma .ln,
+        .article-content .highlight .chroma .cl,
+        .article-content .highlight .chroma .line {
+            white-space: pre !important;
+            word-break: normal !important;
+            overflow-wrap: normal !important;
         }
 
          
@@ -2063,7 +2081,6 @@ class Cursor {
         });
     })();
 </script>
-
 
 
 <div id="jsi-flying-fish-container"></div>
