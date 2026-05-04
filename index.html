@@ -7,11 +7,11 @@
 
 <link rel='canonical' href='https://yunmoxing.github.io/'>
 
-<link rel="stylesheet" href="/scss/style.min.89810f4d802fe4b96ec2a503d6cb5cec516bfa8d94c432b3c4545dfc4a8c8eb9.css"><meta property='og:title' content="陨熙然-Blog">
+<link rel="stylesheet" href="/scss/style.min.368244b6add832b770ae2dfeb8bc4da53b5ec40861d2924c8e9ec099e0995035.css"><meta property='og:title' content="陨熙然-Blog">
 <meta property='og:description' content="山高自有客行路">
 <meta property='og:url' content='https://yunmoxing.github.io/'>
 <meta property='og:site_name' content='陨熙然-Blog'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-04-26T00:00:00&#43;00:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-04-28T00:00:00&#43;00:00 '/>
 <meta name="twitter:title" content="陨熙然-Blog">
 <meta name="twitter:description" content="山高自有客行路"><link rel="alternate" type="application/rss&#43;xml" href="https://yunmoxing.github.io/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -1100,23 +1100,21 @@ class Cursor {
     </div>
     <h2 class="widget-title section-title">归档</h2>
 
-    
-    <div id="year-stats" style="margin-bottom: 10px; margin-left: 12px; font-size: 13px; color: #666;"></div>
+    <div id="year-stats" style="margin: 2px 0 14px 1.1em; font-size: 13px; line-height: 1.6; color: #8f96a3;"></div>
+    <div id="heatmap" style="width: 100%; height: 190px; margin-top: 4px; overflow: hidden;"></div>
 
-    <div id="heatmap" style="
-        width: 100%;
-        height: 130px;
-        padding: 0;
-        margin-top: 8px;
-    "></div>
-    
-    
     <script id="heatmap-data" type="application/json">
 {
     "pages": [
             {
+                "date": "2026-04-28",
+                "wordCount":  1388 ,
+                "link": "\/p\/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2\/",
+                "title": "Shortcodes | 短代码 （2）"
+            },
+            {
                 "date": "2026-04-26",
-                "wordCount":  2570 ,
+                "wordCount":  2697 ,
                 "link": "\/p\/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81\/",
                 "title": "Shortcodes | 短代码"
             },
@@ -1128,7 +1126,7 @@ class Cursor {
             },
             {
                 "date": "2025-09-27",
-                "wordCount":  1046 ,
+                "wordCount":  1048 ,
                 "link": "\/p\/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2\/",
                 "title": "【Hugo】Hugo \u002b Github 免费部署自己的博客"
             },
@@ -1153,190 +1151,210 @@ class Cursor {
     ]
 }
     </script>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var chartDom = document.getElementById('heatmap');
-            var myChart = echarts.init(chartDom);
-            
-            window.addEventListener('resize', function() {
-                myChart.resize();
-            });
-
+            var yearStatsDom = document.getElementById('year-stats');
             var dataElement = document.getElementById('heatmap-data');
+
+            if (!chartDom || !yearStatsDom || !dataElement || typeof echarts === 'undefined') return;
+
+            var chart = echarts.init(chartDom);
             var jsonData = JSON.parse(dataElement.textContent);
-            var pages = jsonData.pages;
+            var pages = jsonData.pages || [];
 
             var dataMap = new Map();
+            var yearStats = {};
+
             for (var i = 0; i < pages.length; i++) {
                 var page = pages[i];
-                var key = page.date;
-                var value = dataMap.get(key);
-                var wordCount = page.wordCount;
-                var link = page.link;
-                var title = page.title;
-                if (value == null) {
-                    dataMap.set(key, [{wordCount: wordCount, link: link, title: title}]);
-                } else {
-                    value.push({wordCount: wordCount, link: link, title: title});
-                }
+                var date = page.date;
+                var items = dataMap.get(date) || [];
+                items.push({
+                    wordCount: page.wordCount,
+                    link: page.link,
+                    title: page.title
+                });
+                dataMap.set(date, items);
+
+                var year = date.substring(0, 4);
+                yearStats[year] = (yearStats[year] || 0) + 1;
             }
 
-            
-            var yearStats = {};
-            for (var j = 0; j < pages.length; j++) {
-                var p = pages[j];
-                var year = p.date.substring(0, 4);
-                if (!yearStats[year]) yearStats[year] = 0;
-                yearStats[year] += 1;
-            }
-
-            
-            function heatmap_range(months) {
+            function getRange(months) {
                 var endDate = new Date();
                 var startDate = new Date();
-                startDate.setMonth(endDate.getMonth() - months + 1, 1);
-                return [echarts.format.formatTime('yyyy-MM-dd', startDate), echarts.format.formatTime('yyyy-MM-dd', endDate)];
+                startDate = new Date(endDate.getFullYear(), endDate.getMonth() - months + 1, 1);
+                return [
+                    echarts.format.formatTime('yyyy-MM-dd', startDate),
+                    echarts.format.formatTime('yyyy-MM-dd', endDate)
+                ];
             }
-            var range = heatmap_range(6);
-            var rangeStart = range[0];
-            var rangeEnd = range[1];
 
-            var data = [];
-            var maxWordCount = 0;
+            var range = getRange(6);
+            var heatmapData = [];
+            var maxValue = 0;
 
-            for (var [key, value] of dataMap.entries()) {
-                if (key < rangeStart || key > rangeEnd) continue;
-                var sum = 0;
-                for (var v of value) {
-                    sum += v.wordCount;
+            dataMap.forEach(function (posts, date) {
+                if (date < range[0] || date > range[1]) return;
+
+                var totalWordCount = 0;
+                for (var i = 0; i < posts.length; i++) {
+                    totalWordCount += posts[i].wordCount;
                 }
-                if (sum > maxWordCount) maxWordCount = sum;
-                data.push([key, sum]);
-            }
 
-            var yearStatsHtml = '';
-            
-            var sortedYears = Object.keys(yearStats).sort(function(a, b) { return b - a; });
-            var displayYears = sortedYears.slice(0, 4);
-            for (var i = 0; i < displayYears.length; i++) {
-                var y = displayYears[i];
-                yearStatsHtml += '<span style="margin-right: 12px; cursor: pointer; text-decoration: none;" onclick="window.open(\'/archives/\', \'_blank\')"><span style="color: #1E90FF; font-weight: bold;">' + y + '</span><span style="color: #666;">(' + yearStats[y] + ')</span></span>';
-            }
-            document.getElementById('year-stats').innerHTML = yearStatsHtml;
+                maxValue = Math.max(maxValue, totalWordCount);
+                heatmapData.push([date, totalWordCount]);
+            });
 
-            
+            if (maxValue <= 0) maxValue = 1;
+
             var prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            var lightTheme = {
-                backgroundColor: '#FFFFFF',
-                fangkuaicolor: 'transparent',
-                gaoliangcolor: ['transparent', '#87CEEB', '#5B9BD5', '#1E90FF', '#1565C0'],
-                riqiColor: '#b8b8b8',
-                textbrcolor: '#FFF',
-                xiankuangcolor: '#d0d0d0',
-                borderColor: '#d0d0d0'
+            var theme = prefersDarkMode ? {
+                tooltipBg: '#2d3340',
+                tooltipText: '#e3e7ef',
+                base: 'transparent',
+                border: 'rgba(184, 207, 255, 0.18)',
+                yearText: '#f6f7fb',
+                countText: '#aeb5c2',
+                monthText: '#eef1f6',
+                dayText: '#a9b0bd',
+                colors: ['#eef4ff', '#dbe8ff', '#b7ceff', '#7ea7ff', '#4a78dd']
+            } : {
+                tooltipBg: '#ffffff',
+                tooltipText: '#5e6675',
+                base: 'transparent',
+                border: '#dbe6f5',
+                yearText: '#4c5d88',
+                countText: '#b5bcc8',
+                monthText: '#20242c',
+                dayText: '#8c919b',
+                colors: ['#f5f7fc', '#dfe8ff', '#b8c9ff', '#8ca7f1', '#5f84dc']
             };
-            var darkTheme = {
-                backgroundColor: '#1A1718',
-                fangkuaicolor: 'transparent',
-                gaoliangcolor: ['transparent', 'rgba(100, 180, 255, 0.4)', 'rgba(30, 144, 255, 0.65)', 'rgba(30, 144, 255, 0.9)', 'rgba(21, 101, 192, 0.95)'],
-                riqiColor: '#666',
-                textbrcolor: '#332D2F',
-                xiankuangcolor: 'rgba(255, 255, 255, 0.12)',
-                borderColor: 'rgba(255, 255, 255, 0.15)'
-            };
-            var currentTheme = prefersDarkMode ? darkTheme : lightTheme;
-            if (maxWordCount <= 0) maxWordCount = 1;
 
-            var option = {
-                tooltip: {
-                    confine: true,
-                    hideDelay: 1000,
-                    enterable: true,
-                    backgroundColor: currentTheme.textbrcolor,
-                    borderWidth: 0,
-                    textStyle: { color: currentTheme.riqiColor },
-                    formatter: function (p) {
-                        var date = p.data[0];
-                        var posts = dataMap.get(date);
-                        if (!posts) return date;
-                        var content = '<span style="font-weight:bold;color:#ABABAB">' + date + '</span>';
-                        for (var i = 0; i < posts.length; i++) {
-                            var post = posts[i];
-                            content += '<br><a href="' + post.link + '" target="_blank" style="color:#1E90FF">' + post.title + '</a> | ' + post.wordCount + '字';
-                        }
-                        return content;
-                    }
-                },
-                visualMap: {
-                    min: 0,
-                    max: maxWordCount,
-                    type: 'continuous',
-                    show: false,
-                    inRange: { color: currentTheme.gaoliangcolor }
-                },
-                calendar: {
-                    left: 42,
-                    top: 20,
-                    bottom: 0,
-                    right: 0,
-                    cellSize: ['auto', 8],
-                    range: range,
-                    itemStyle: {
-                        color: currentTheme.fangkuaicolor,
-                        borderWidth: 1,
-                        borderColor: currentTheme.borderColor
-                    },
-                    yearLabel: { show: false },
-                    monthLabel: {
-                        show: true,
-                        nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            var sortedYears = Object.keys(yearStats).sort(function (a, b) { return b - a; }).slice(0, 4);
+            yearStatsDom.innerHTML = sortedYears.map(function (year) {
+                return '<span style="margin-right: 18px; white-space: nowrap;">' +
+                    '<a href="/archives/" target="_blank" style="color:' + theme.yearText + '; font-size:14px; font-weight:700; text-decoration:none;">' + year + '</a>' +
+                    '<span style="color:' + theme.countText + '; font-size:14px; font-weight:600;">(' + yearStats[year] + ')</span>' +
+                    '</span>';
+            }).join('');
+
+            function buildOption() {
+                var leftInset = 0;
+                var rightInset = 12;
+                var topInset = 28;
+                var calendarHeight = 104;
+                var dayLabelWidth = 24;
+                var calendarWidth = Math.max(chartDom.clientWidth - leftInset - rightInset - dayLabelWidth, 220);
+
+                chartDom.style.height = '178px';
+
+                return {
+                    animation: false,
+                    tooltip: {
+                        confine: true,
+                        enterable: true,
+                        backgroundColor: theme.tooltipBg,
+                        borderWidth: 0,
                         textStyle: {
-                            color: currentTheme.riqiColor,
-                            fontSize: 11
+                            color: theme.tooltipText,
+                            fontSize: 12
                         },
-                        margin: 6
-                    },
-                    dayLabel: {
-                        show: true,
-                        firstDay: 0,
-                        nameMap: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-                        textStyle: {
-                            color: currentTheme.riqiColor,
-                            fontSize: 9
-                        },
-                        margin: 8
-                    },
-                    splitLine: {
-                        show: true,
-                        lineStyle: {
-                            color: currentTheme.xiankuangcolor,
-                            width: 1
+                        formatter: function (params) {
+                            var date = params.data[0];
+                            var posts = dataMap.get(date);
+                            if (!posts || !posts.length) return date;
+
+                            var html = '<span style="font-weight:700;">' + date + '</span>';
+                            for (var i = 0; i < posts.length; i++) {
+                                html += '<br><a href="' + posts[i].link + '" target="_blank" style="color:#4a78dd">' + posts[i].title + '</a> | ' + posts[i].wordCount + '字';
+                            }
+                            return html;
                         }
+                    },
+                    visualMap: {
+                        min: 0,
+                        max: maxValue,
+                        calculable: false,
+                        orient: 'horizontal',
+                        show: false,
+                        inRange: {
+                            color: theme.colors
+                        }
+                    },
+                    calendar: {
+                        top: topInset,
+                        left: leftInset + dayLabelWidth,
+                        right: rightInset,
+                        width: calendarWidth,
+                        height: calendarHeight,
+                        range: range,
+                        splitLine: {
+                            show: false
+                        },
+                        itemStyle: {
+                            color: theme.base,
+                            borderWidth: 1,
+                            borderColor: theme.border
+                        },
+                        cellSize: [10, 10],
+                        yearLabel: {
+                            show: false
+                        },
+                        monthLabel: {
+                            show: true,
+                            nameMap: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                            position: 'start',
+                            margin: 12,
+                            textStyle: {
+                                color: theme.monthText,
+                                fontSize: 11,
+                                fontWeight: 500
+                            }
+                        },
+                        dayLabel: {
+                            show: true,
+                            firstDay: 0,
+                            position: 'start',
+                            margin: 10,
+                            nameMap: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                            textStyle: {
+                                color: theme.dayText,
+                                fontSize: 10,
+                                fontWeight: 500
+                            }
+                        }
+                    },
+                    series: {
+                        type: 'heatmap',
+                        coordinateSystem: 'calendar',
+                        data: heatmapData
                     }
-                },
-                series: {
-                    type: 'heatmap',
-                    coordinateSystem: 'calendar',
-                    data: data
-                }
-            };
+                };
+            }
 
-            myChart.setOption(option);
+            function renderHeatmap() {
+                chart.resize();
+                chart.setOption(buildOption(), true);
+            }
 
-            myChart.on('click', function(params) {
-                if (params.componentType === 'series' && params.data && params.data[0]) {
-                    var posts = dataMap.get(params.data[0]);
-                    if (posts && posts.length > 0) {
-                        window.open(posts[0].link, '_blank').focus();
-                    }
+            renderHeatmap();
+            window.addEventListener('resize', renderHeatmap);
+
+            chart.on('click', function (params) {
+                if (params.componentType !== 'series' || !params.data || !params.data[0]) return;
+                var posts = dataMap.get(params.data[0]);
+                if (posts && posts.length > 0) {
+                    window.open(posts[0].link, '_blank');
                 }
             });
         });
     </script>
 </section>
+
             
         
             
@@ -1357,7 +1375,7 @@ class Cursor {
 
     <div class="tagCloud-tags"><a
                 href="/categories/%E6%95%99%E7%A8%8B%E5%88%86%E4%BA%AB/"
-                class="font_size_2 tag-long"
+                class="font_size_3 tag-long"
                 style="--tag-color: #ff9aa2;"
             >
                 教程&amp;分享
@@ -1480,13 +1498,13 @@ class Cursor {
 <article class="has-image">
     <header class="article-header">
         <div class="article-image">
-            <a href="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/">
-                <img src="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/doncoombez-glGMOYVi1fc-unsplash_hu_9cd171c7489e7a38.jpg"
-                        srcset="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/doncoombez-glGMOYVi1fc-unsplash_hu_9cd171c7489e7a38.jpg 800w, /p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/doncoombez-glGMOYVi1fc-unsplash_hu_98904a86d0b237df.jpg 1600w"
-                        width="800" 
-                        height="533" 
+            <a href="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/">
+                <img src="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/ilia-bronskiy-Z6QC1ey6XAw-unsplash_hu_3dbc0c5297c730d4.jpg"
+                        srcset="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/ilia-bronskiy-Z6QC1ey6XAw-unsplash_hu_3dbc0c5297c730d4.jpg 800w, /p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/ilia-bronskiy-Z6QC1ey6XAw-unsplash_hu_49499ca17b204449.jpg 1600w"
+                        width="800"
+                        height="533"
                         loading="lazy"
-                        alt="Featured image of post Shortcodes | 短代码" />
+                        alt="Featured image of post Shortcodes | 短代码 （2）" />
                 
             </a>
         </div>
@@ -1494,19 +1512,23 @@ class Cursor {
 
     <div class="article-details">
     
-    <header class="article-category">
-        
-            <a href="/categories/%E6%95%99%E7%A8%8B%E5%88%86%E4%BA%AB/" style="background-color: #ff9aa2; color: #fff;">
-                教程&amp;分享
-            </a>
-        
-    </header>
-    
 
     <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/">Shortcodes | 短代码</a>
-        </h2>
+        <div class="article-title-row">
+            <h2 class="article-title">
+                <a href="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/">Shortcodes | 短代码 （2）</a>
+            </h2>
+
+            
+            <div class="article-category article-category--inline">
+                
+                    <a href="/categories/%E6%95%99%E7%A8%8B%E5%88%86%E4%BA%AB/" style="background-color: #ff9aa2; color: #fff;">
+                        教程&amp;分享
+                    </a>
+                
+            </div>
+            
+        </div>
     
         
         <h3 class="article-subtitle">
@@ -1521,10 +1543,148 @@ class Cursor {
     
     
     
+        
+        
+            
+            
+            
+                
+                
+                    
+                
+            
+            
+        
+    
+    
+    
+    
     <footer class="article-time">
         
             <div class="article-time--dates">
-                <div>
+                <div class="article-meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published">2026-04-28</time>
+                </div>
+                
+            </div>
+        
+
+        
+            <div class="separator">|</div>
+            <div class="article-meta-item article-time--wordcount">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
+                <span class="article-word-count">
+                    <span class="article-word-count-number">1388</span>
+                    <span class="article-word-count-unit">字</span>
+                </span>
+            </div>
+        
+
+        
+            <div class="separator">|</div>
+            <div class="article-meta-item article-time--reading-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+</article>
+
+        
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/">
+                <img src="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/marek-piwnicki-rwcONvax9qE-unsplash_hu_66f90fae576e187e.jpg"
+                        srcset="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/marek-piwnicki-rwcONvax9qE-unsplash_hu_66f90fae576e187e.jpg 800w, /p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/marek-piwnicki-rwcONvax9qE-unsplash_hu_3a00152a27467d01.jpg 1600w"
+                        width="800"
+                        height="507"
+                        loading="lazy"
+                        alt="Featured image of post Shortcodes | 短代码" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <div class="article-title-row">
+            <h2 class="article-title">
+                <a href="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/">Shortcodes | 短代码</a>
+            </h2>
+
+            
+            <div class="article-category article-category--inline">
+                
+                    <a href="/categories/%E6%95%99%E7%A8%8B%E5%88%86%E4%BA%AB/" style="background-color: #ff9aa2; color: #fff;">
+                        教程&amp;分享
+                    </a>
+                
+            </div>
+            
+        </div>
+    
+        
+        <h3 class="article-subtitle">
+            在 Stack 主题上可行的短代码们
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+        
+        
+            
+            
+            
+                
+                
+                    
+                
+            
+            
+        
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div class="article-time--dates">
+                <div class="article-meta-item">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
@@ -1536,33 +1696,24 @@ class Cursor {
 </svg>
                     <time class="article-time--published">2026-04-26</time>
                 </div>
-                <div class="separator">|</div>
-                
-                    <div class="article-time--lastmod-inline">
-                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
-                        <time class="article-time--lastmod">
-                            2026-04-26
-                        </time>
-                    </div>
                 
             </div>
         
 
-        <div class="separator">|</div>
-
         
-            <div class="article-time--wordcount">
-                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-pencil-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /><path d="M13.5 6.5l4 4" /><path d="M16 19h6" /></svg>
+            <div class="separator">|</div>
+            <div class="article-meta-item article-time--wordcount">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
                 <span class="article-word-count">
-                    2570 字
+                    <span class="article-word-count-number">2697</span>
+                    <span class="article-word-count-unit">字</span>
                 </span>
             </div>
         
 
-        <div class="separator">|</div>
-
         
-            <div>
+            <div class="separator">|</div>
+            <div class="article-meta-item article-time--reading-wrapper">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
@@ -1576,17 +1727,16 @@ class Cursor {
                 </time>
             </div>
         
-        
-        
     </footer>
     
 
     
 </div>
 
-
 </header>
+
 </article>
+
         
             
 <article class="has-image">
@@ -1595,8 +1745,8 @@ class Cursor {
             <a href="/p/%E6%88%91%E7%9A%84%E7%B2%BE%E7%A5%9E%E8%A7%92%E8%90%BD%E5%85%B4%E8%B6%A3%E5%8D%B7%E4%B8%80/">
                 <img src="/p/%E6%88%91%E7%9A%84%E7%B2%BE%E7%A5%9E%E8%A7%92%E8%90%BD%E5%85%B4%E8%B6%A3%E5%8D%B7%E4%B8%80/CR450AF_hu_3923c98131de78f3.jpg"
                         srcset="/p/%E6%88%91%E7%9A%84%E7%B2%BE%E7%A5%9E%E8%A7%92%E8%90%BD%E5%85%B4%E8%B6%A3%E5%8D%B7%E4%B8%80/CR450AF_hu_3923c98131de78f3.jpg 800w, /p/%E6%88%91%E7%9A%84%E7%B2%BE%E7%A5%9E%E8%A7%92%E8%90%BD%E5%85%B4%E8%B6%A3%E5%8D%B7%E4%B8%80/CR450AF_hu_e5aa9fa869544caa.jpg 1600w"
-                        width="800" 
-                        height="600" 
+                        width="800"
+                        height="600"
                         loading="lazy"
                         alt="Featured image of post 我的精神角落：兴趣卷（一）" />
                 
@@ -1606,19 +1756,23 @@ class Cursor {
 
     <div class="article-details">
     
-    <header class="article-category">
-        
-            <a href="/categories/%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD/" style="background-color: #aecbfa; color: #fff;">
-                兴趣爱好
-            </a>
-        
-    </header>
-    
 
     <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/%E6%88%91%E7%9A%84%E7%B2%BE%E7%A5%9E%E8%A7%92%E8%90%BD%E5%85%B4%E8%B6%A3%E5%8D%B7%E4%B8%80/">我的精神角落：兴趣卷（一）</a>
-        </h2>
+        <div class="article-title-row">
+            <h2 class="article-title">
+                <a href="/p/%E6%88%91%E7%9A%84%E7%B2%BE%E7%A5%9E%E8%A7%92%E8%90%BD%E5%85%B4%E8%B6%A3%E5%8D%B7%E4%B8%80/">我的精神角落：兴趣卷（一）</a>
+            </h2>
+
+            
+            <div class="article-category article-category--inline">
+                
+                    <a href="/categories/%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD/" style="background-color: #aecbfa; color: #fff;">
+                        兴趣爱好
+                    </a>
+                
+            </div>
+            
+        </div>
     
         
         <h3 class="article-subtitle">
@@ -1633,10 +1787,26 @@ class Cursor {
     
     
     
+        
+        
+            
+            
+            
+                
+                
+                    
+                
+            
+            
+        
+    
+    
+    
+    
     <footer class="article-time">
         
             <div class="article-time--dates">
-                <div>
+                <div class="article-meta-item">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
@@ -1648,10 +1818,15 @@ class Cursor {
 </svg>
                     <time class="article-time--published">2026-03-02</time>
                 </div>
-                <div class="separator">|</div>
                 
-                    <div class="article-time--lastmod-inline">
-                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
+                    <div class="separator">|</div>
+                    <div class="article-meta-item article-time--lastmod-inline">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-pencil" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+  <path d="M13.5 6.5l4 4" />
+</svg>
+
                         <time class="article-time--lastmod">
                             2026-04-26
                         </time>
@@ -1660,21 +1835,20 @@ class Cursor {
             </div>
         
 
-        <div class="separator">|</div>
-
         
-            <div class="article-time--wordcount">
-                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-pencil-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /><path d="M13.5 6.5l4 4" /><path d="M16 19h6" /></svg>
+            <div class="separator">|</div>
+            <div class="article-meta-item article-time--wordcount">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
                 <span class="article-word-count">
-                    1311 字
+                    <span class="article-word-count-number">1311</span>
+                    <span class="article-word-count-unit">字</span>
                 </span>
             </div>
         
 
-        <div class="separator">|</div>
-
         
-            <div>
+            <div class="separator">|</div>
+            <div class="article-meta-item article-time--reading-wrapper">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
@@ -1688,17 +1862,16 @@ class Cursor {
                 </time>
             </div>
         
-        
-        
     </footer>
     
 
     
 </div>
 
-
 </header>
+
 </article>
+
         
             
 <article class="has-image">
@@ -1707,8 +1880,8 @@ class Cursor {
             <a href="/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
                 <img src="/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/hugo_hu_57a738b7b111ac7b.jpg"
                         srcset="/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/hugo_hu_57a738b7b111ac7b.jpg 800w, /p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/hugo_hu_a13f292959b9729a.jpg 1600w"
-                        width="800" 
-                        height="405" 
+                        width="800"
+                        height="405"
                         loading="lazy"
                         alt="Featured image of post 【Hugo】Hugo &#43; Github 免费部署自己的博客" />
                 
@@ -1718,19 +1891,23 @@ class Cursor {
 
     <div class="article-details">
     
-    <header class="article-category">
-        
-            <a href="/categories/%E6%95%99%E7%A8%8B%E5%88%86%E4%BA%AB/" style="background-color: #ff9aa2; color: #fff;">
-                教程&amp;分享
-            </a>
-        
-    </header>
-    
 
     <div class="article-title-wrapper">
-        <h2 class="article-title">
-            <a href="/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">【Hugo】Hugo &#43; Github 免费部署自己的博客</a>
-        </h2>
+        <div class="article-title-row">
+            <h2 class="article-title">
+                <a href="/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">【Hugo】Hugo &#43; Github 免费部署自己的博客</a>
+            </h2>
+
+            
+            <div class="article-category article-category--inline">
+                
+                    <a href="/categories/%E6%95%99%E7%A8%8B%E5%88%86%E4%BA%AB/" style="background-color: #ff9aa2; color: #fff;">
+                        教程&amp;分享
+                    </a>
+                
+            </div>
+            
+        </div>
     
         
         <h3 class="article-subtitle">
@@ -1745,10 +1922,21 @@ class Cursor {
     
     
     
+        
+        
+            
+            
+            
+            
+        
+    
+    
+    
+    
     <footer class="article-time">
         
             <div class="article-time--dates">
-                <div>
+                <div class="article-meta-item">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
@@ -1760,33 +1948,24 @@ class Cursor {
 </svg>
                     <time class="article-time--published">2025-09-27</time>
                 </div>
-                <div class="separator">|</div>
-                
-                    <div class="article-time--lastmod-inline">
-                        <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
-                        <time class="article-time--lastmod">
-                            2025-09-27
-                        </time>
-                    </div>
                 
             </div>
         
 
-        <div class="separator">|</div>
-
         
-            <div class="article-time--wordcount">
-                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-pencil-minus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" /><path d="M13.5 6.5l4 4" /><path d="M16 19h6" /></svg>
+            <div class="separator">|</div>
+            <div class="article-meta-item article-time--wordcount">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
                 <span class="article-word-count">
-                    1046 字
+                    <span class="article-word-count-number">1048</span>
+                    <span class="article-word-count-unit">字</span>
                 </span>
             </div>
         
 
-        <div class="separator">|</div>
-
         
-            <div>
+            <div class="separator">|</div>
+            <div class="article-meta-item article-time--reading-wrapper">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z"/>
   <circle cx="12" cy="12" r="9" />
@@ -1800,7 +1979,122 @@ class Cursor {
                 </time>
             </div>
         
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+</article>
+
         
+            
+<article class="has-image">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/%E4%BD%A0%E5%A5%BD-hugo/">
+                <img src="/p/%E4%BD%A0%E5%A5%BD-hugo/nathan-broadbent-DkO2Isk9tjo-unsplash_hu_1c0eede5aa752162.jpg"
+                        srcset="/p/%E4%BD%A0%E5%A5%BD-hugo/nathan-broadbent-DkO2Isk9tjo-unsplash_hu_1c0eede5aa752162.jpg 800w, /p/%E4%BD%A0%E5%A5%BD-hugo/nathan-broadbent-DkO2Isk9tjo-unsplash_hu_b5b05cb7249e6401.jpg 1600w"
+                        width="800"
+                        height="533"
+                        loading="lazy"
+                        alt="Featured image of post 你好 Hugo" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <div class="article-title-row">
+            <h2 class="article-title">
+                <a href="/p/%E4%BD%A0%E5%A5%BD-hugo/">你好 Hugo</a>
+            </h2>
+
+            
+            <div class="article-category article-category--inline">
+                
+                    <a href="/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/" style="background-color: #a5ecc0; color: #fff;">
+                        闲言碎语
+                    </a>
+                
+            </div>
+            
+        </div>
+    
+        
+        <h3 class="article-subtitle">
+            第一篇真正意义上的博文
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+        
+        
+            
+            
+            
+            
+        
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div class="article-time--dates">
+                <div class="article-meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published">2025-09-14</time>
+                </div>
+                
+            </div>
+        
+
+        
+            <div class="separator">|</div>
+            <div class="article-meta-item article-time--wordcount">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
+                <span class="article-word-count">
+                    <span class="article-word-count-number">1101</span>
+                    <span class="article-word-count-unit">字</span>
+                </span>
+            </div>
+        
+
+        
+            <div class="separator">|</div>
+            <div class="article-meta-item article-time--reading-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 3 分钟
+                </time>
+            </div>
         
     </footer>
     
@@ -1808,9 +2102,10 @@ class Cursor {
     
 </div>
 
-
 </header>
+
 </article>
+
         
     </section>
     <nav class='pagination'>
@@ -1843,7 +2138,7 @@ class Cursor {
         
 
         
-        <span class="site-stats">共发表 6 篇文章・总计 7.89k 字</span> <br/>
+        <span class="site-stats">共发表 7 篇文章・总计 9.41k 字</span> <br/>
         
 
         
@@ -2341,75 +2636,6 @@ class Cursor {
 
 
 
-<script>
-    const cdnPath = "https://cdn.meimolihan.eu.org/hugo/live2d";
-    
-  
-    const config = {
-      
-      path: {
-        homePath: "/",
-        modelPath: cdnPath + "/live2d-moc3/",
-        cssPath: cdnPath + "/waifu.css",
-        tipsJsonPath: cdnPath + "/waifu-tips.json",
-        tipsJsPath: cdnPath + "/waifu-tips.js",
-        live2dCorePath: cdnPath + "/live2dcubismcore.js",
-        live2dSdkPath: cdnPath + "/live2d-sdk.js"
-      },
-      
-      tools: ["hitokoto", "asteroids", "express", "switch-model", "switch-texture", "photo", "info", "quit"],
-      
-      drag: {
-        enable: true,
-        direction: ["x", "y"]
-      },
-      
-      switchType: "order"
-    }
-  
-    
-    if (screen.width >= 768) {
-      Promise.all([
-        loadExternalResource(config.path.cssPath, "css"),
-        loadExternalResource(config.path.live2dCorePath, "js"),
-        loadExternalResource(config.path.live2dSdkPath, "js"),
-        loadExternalResource(config.path.tipsJsPath, "js")
-      ]).then(() => {
-        initWidget({
-          waifuPath: config.path.tipsJsonPath,
-          cdnPath: config.path.modelPath,
-          tools: config.tools,
-          dragEnable: config.drag.enable,
-          dragDirection: config.drag.direction,
-          switchType: config.switchType
-        });
-      });
-    }
-  
-    
-    function loadExternalResource(url, type) {
-      return new Promise((resolve, reject) => {
-        let tag;
-        if (type === "css") {
-          tag = document.createElement("link");
-          tag.rel = "stylesheet";
-          tag.href = url;
-        }
-        else if (type === "js") {
-          tag = document.createElement("script");
-          tag.src = url;
-        }
-        if (tag) {
-          tag.onload = () => resolve(url);
-          tag.onerror = () => reject(url);
-          document.head.appendChild(tag);
-        }
-      });
-    }
-  </script>
-  
-
-
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
     function confetti() {
@@ -2885,6 +3111,93 @@ class Cursor {
                 }
             }, 4000);
         });
+    })();
+</script>
+
+
+<style>
+    #waifu,
+    #waifu-toggle {
+        z-index: 999 !important;
+    }
+
+    #waifu-tool {
+        left: auto !important;
+        right: 15px !important;
+        top: 55px !important;
+        z-index: 1000 !important;
+    }
+</style>
+<script>
+    (function() {
+        const engineCdn = "https://cdn.jsdelivr.net/gh/yunmoxing/yan_live2d-widget-v3@v1.0.4";
+
+        const config = {
+            path: {
+                homePath: "/",
+                modelPath: "/live2d/Resources/",
+                cssPath: engineCdn + "/waifu.css",
+                tipsJsonPath: engineCdn + "/waifu-tips.json",
+                tipsJsPath: "/live2d/waifu-tips.js",
+                live2dCorePath: engineCdn + "/Core/live2dcubismcore.js",
+                live2dSdkPath: engineCdn + "/live2d-sdk.js"
+            },
+            tools: ["hitokoto", "asteroids", "express", "photo", "info", "quit"],
+            drag: {
+                enable: true,
+                direction: ["x", "y"]
+            },
+            switchType: "order"
+        };
+
+        function loadExternalResource(url, type) {
+            return new Promise((resolve, reject) => {
+                let tag;
+
+                if (type === "css") {
+                    tag = document.createElement("link");
+                    tag.rel = "stylesheet";
+                    tag.href = url;
+                } else if (type === "js") {
+                    tag = document.createElement("script");
+                    tag.src = url;
+                }
+
+                if (!tag) {
+                    reject(new Error("Unsupported resource type"));
+                    return;
+                }
+
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(new Error("Failed to load: " + url));
+                document.head.appendChild(tag);
+            });
+        }
+
+        if (screen.width >= 768) {
+            Promise.all([
+                loadExternalResource(config.path.cssPath, "css"),
+                loadExternalResource(config.path.live2dCorePath, "js"),
+                loadExternalResource(config.path.live2dSdkPath, "js"),
+                loadExternalResource(config.path.tipsJsPath, "js")
+            ]).then(() => {
+                if (typeof initWidget !== "function") {
+                    return;
+                }
+
+                initWidget({
+                    homePath: config.path.homePath,
+                    waifuPath: config.path.tipsJsonPath,
+                    cdnPath: config.path.modelPath,
+                    tools: config.tools,
+                    dragEnable: config.drag.enable,
+                    dragDirection: config.drag.direction,
+                    switchType: config.switchType
+                });
+            }).catch(error => {
+                console.error("Live2D load failed:", error);
+            });
+        }
     })();
 </script>
 

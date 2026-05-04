@@ -6,11 +6,11 @@
 
 <link rel='canonical' href='https://yunmoxing.github.io/tags/%E6%9C%BA%E8%BD%A6/'>
 
-<link rel="stylesheet" href="/scss/style.min.89810f4d802fe4b96ec2a503d6cb5cec516bfa8d94c432b3c4545dfc4a8c8eb9.css"><meta property='og:title' content="Tag: 机车 - 陨熙然-Blog">
+<link rel="stylesheet" href="/scss/style.min.368244b6add832b770ae2dfeb8bc4da53b5ec40861d2924c8e9ec099e0995035.css"><meta property='og:title' content="Tag: 机车 - 陨熙然-Blog">
 <meta property='og:description' content="山高自有客行路">
 <meta property='og:url' content='https://yunmoxing.github.io/tags/%E6%9C%BA%E8%BD%A6/'>
 <meta property='og:site_name' content='陨熙然-Blog'>
-<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-04-26T00:00:00&#43;00:00 '/>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2026-04-28T00:00:00&#43;00:00 '/>
 <meta name="twitter:title" content="Tag: 机车 - 陨熙然-Blog">
 <meta name="twitter:description" content="山高自有客行路"><link rel="alternate" type="application/rss&#43;xml" href="https://yunmoxing.github.io/tags/%E6%9C%BA%E8%BD%A6/index.xml">
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -756,7 +756,7 @@ class Cursor {
         
 
         
-        <span class="site-stats">共发表 6 篇文章・总计 7.89k 字</span> <br/>
+        <span class="site-stats">共发表 7 篇文章・总计 9.41k 字</span> <br/>
         
 
         
@@ -1255,75 +1255,6 @@ class Cursor {
 
 
 
-<script>
-    const cdnPath = "https://cdn.meimolihan.eu.org/hugo/live2d";
-    
-  
-    const config = {
-      
-      path: {
-        homePath: "/",
-        modelPath: cdnPath + "/live2d-moc3/",
-        cssPath: cdnPath + "/waifu.css",
-        tipsJsonPath: cdnPath + "/waifu-tips.json",
-        tipsJsPath: cdnPath + "/waifu-tips.js",
-        live2dCorePath: cdnPath + "/live2dcubismcore.js",
-        live2dSdkPath: cdnPath + "/live2d-sdk.js"
-      },
-      
-      tools: ["hitokoto", "asteroids", "express", "switch-model", "switch-texture", "photo", "info", "quit"],
-      
-      drag: {
-        enable: true,
-        direction: ["x", "y"]
-      },
-      
-      switchType: "order"
-    }
-  
-    
-    if (screen.width >= 768) {
-      Promise.all([
-        loadExternalResource(config.path.cssPath, "css"),
-        loadExternalResource(config.path.live2dCorePath, "js"),
-        loadExternalResource(config.path.live2dSdkPath, "js"),
-        loadExternalResource(config.path.tipsJsPath, "js")
-      ]).then(() => {
-        initWidget({
-          waifuPath: config.path.tipsJsonPath,
-          cdnPath: config.path.modelPath,
-          tools: config.tools,
-          dragEnable: config.drag.enable,
-          dragDirection: config.drag.direction,
-          switchType: config.switchType
-        });
-      });
-    }
-  
-    
-    function loadExternalResource(url, type) {
-      return new Promise((resolve, reject) => {
-        let tag;
-        if (type === "css") {
-          tag = document.createElement("link");
-          tag.rel = "stylesheet";
-          tag.href = url;
-        }
-        else if (type === "js") {
-          tag = document.createElement("script");
-          tag.src = url;
-        }
-        if (tag) {
-          tag.onload = () => resolve(url);
-          tag.onerror = () => reject(url);
-          document.head.appendChild(tag);
-        }
-      });
-    }
-  </script>
-  
-
-
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <script>
     function confetti() {
@@ -1799,6 +1730,93 @@ class Cursor {
                 }
             }, 4000);
         });
+    })();
+</script>
+
+
+<style>
+    #waifu,
+    #waifu-toggle {
+        z-index: 999 !important;
+    }
+
+    #waifu-tool {
+        left: auto !important;
+        right: 15px !important;
+        top: 55px !important;
+        z-index: 1000 !important;
+    }
+</style>
+<script>
+    (function() {
+        const engineCdn = "https://cdn.jsdelivr.net/gh/yunmoxing/yan_live2d-widget-v3@v1.0.4";
+
+        const config = {
+            path: {
+                homePath: "/",
+                modelPath: "/live2d/Resources/",
+                cssPath: engineCdn + "/waifu.css",
+                tipsJsonPath: engineCdn + "/waifu-tips.json",
+                tipsJsPath: "/live2d/waifu-tips.js",
+                live2dCorePath: engineCdn + "/Core/live2dcubismcore.js",
+                live2dSdkPath: engineCdn + "/live2d-sdk.js"
+            },
+            tools: ["hitokoto", "asteroids", "express", "photo", "info", "quit"],
+            drag: {
+                enable: true,
+                direction: ["x", "y"]
+            },
+            switchType: "order"
+        };
+
+        function loadExternalResource(url, type) {
+            return new Promise((resolve, reject) => {
+                let tag;
+
+                if (type === "css") {
+                    tag = document.createElement("link");
+                    tag.rel = "stylesheet";
+                    tag.href = url;
+                } else if (type === "js") {
+                    tag = document.createElement("script");
+                    tag.src = url;
+                }
+
+                if (!tag) {
+                    reject(new Error("Unsupported resource type"));
+                    return;
+                }
+
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(new Error("Failed to load: " + url));
+                document.head.appendChild(tag);
+            });
+        }
+
+        if (screen.width >= 768) {
+            Promise.all([
+                loadExternalResource(config.path.cssPath, "css"),
+                loadExternalResource(config.path.live2dCorePath, "js"),
+                loadExternalResource(config.path.live2dSdkPath, "js"),
+                loadExternalResource(config.path.tipsJsPath, "js")
+            ]).then(() => {
+                if (typeof initWidget !== "function") {
+                    return;
+                }
+
+                initWidget({
+                    homePath: config.path.homePath,
+                    waifuPath: config.path.tipsJsonPath,
+                    cdnPath: config.path.modelPath,
+                    tools: config.tools,
+                    dragEnable: config.drag.enable,
+                    dragDirection: config.drag.direction,
+                    switchType: config.switchType
+                });
+            }).catch(error => {
+                console.error("Live2D load failed:", error);
+            });
+        }
     })();
 </script>
 

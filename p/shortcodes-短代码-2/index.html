@@ -1,0 +1,2509 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="在 Stack 主题上可行的短代码们">
+<title>Shortcodes | 短代码 （2）</title>
+
+<link rel='canonical' href='https://yunmoxing.github.io/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/'>
+
+<link rel="stylesheet" href="/scss/style.min.368244b6add832b770ae2dfeb8bc4da53b5ec40861d2924c8e9ec099e0995035.css"><meta property='og:title' content="Shortcodes | 短代码 （2）">
+<meta property='og:description' content="在 Stack 主题上可行的短代码们">
+<meta property='og:url' content='https://yunmoxing.github.io/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/'>
+<meta property='og:site_name' content='陨熙然-Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='hugo' /><meta property='article:published_time' content='2026-04-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-04-28T00:00:00&#43;00:00'/><meta property='og:image' content='https://yunmoxing.github.io/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/ilia-bronskiy-Z6QC1ey6XAw-unsplash.jpg' />
+<meta name="twitter:title" content="Shortcodes | 短代码 （2）">
+<meta name="twitter:description" content="在 Stack 主题上可行的短代码们"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://yunmoxing.github.io/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/ilia-bronskiy-Z6QC1ey6XAw-unsplash.jpg' />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+
+<style>
+#cursor {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    background: #2ED8F1;
+    border-radius: 8px;
+    opacity: 0.25;
+    z-index: 10086;
+    pointer-events: none;
+    transition: 0.2s ease-in-out;
+    transition-property: background, opacity, transform;
+}
+
+#cursor.hidden {
+    opacity: 0;
+}
+
+#cursor.hover {
+    opacity: 0.1;
+    transform: scale(2.5);
+}
+
+#cursor.active {
+    opacity: 0.5;
+    transform: scale(0.5);
+}
+
+ 
+.site-name a {
+    background: linear-gradient(45deg, 
+         
+        #ff6b6b, #ff8e8e, #ffa502, #ffb833,
+         
+        #4ecdc4, #45b7d1, #54a0ff, #5f27cd,
+         
+        #96ceb4, #2ed573, #00ced1, #1e90ff,
+         
+        #ff9ff3, #8a2be2, #ff1493, #ff4757,
+         
+        #ffa502, #feca57, #32cd32, #00ff7f,
+         
+        #4169e1, #9370db, #ff69b4, #ff1493,
+         
+        #ff6347, #ff69b4, #8a2be2, #5f27cd,
+         
+        #4ecdc4, #3cb371, #00bfff, #1e90ff
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientFlow 12s ease-in-out infinite;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.site-name a:hover {
+    animation: gradientFlow 6s ease-in-out infinite;
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+ 
+[data-scheme="dark"] .site-name a {
+    background: linear-gradient(45deg, 
+         
+        #ff6b6b, #ff8e8e, #ffa502, #ffb833,
+         
+        #4ecdc4, #45b7d1, #54a0ff, #5f27cd,
+         
+        #96ceb4, #2ed573, #00ced1, #1e90ff,
+         
+        #ff9ff3, #8a2be2, #ff1493, #ff4757,
+         
+        #ffa502, #feca57, #32cd32, #00ff7f,
+         
+        #4169e1, #9370db, #ff69b4, #ff1493,
+         
+        #ff6347, #ff69b4, #8a2be2, #5f27cd,
+         
+        #4ecdc4, #3cb371, #00bfff, #1e90ff
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+</style>
+
+<script>
+var CURSOR;
+Math.lerp = (a, b, n) => (1 - n) * a + n * b;
+
+const getStyle = (el, attr) => {
+    try {
+        return window.getComputedStyle
+            ? window.getComputedStyle(el)[attr]
+            : el.currentStyle[attr];
+    } catch (e) {}
+    return "";
+};
+
+class Cursor {
+    constructor() {
+        this.pos = {curr: null, prev: null};
+        this.pt = [];
+        this.create();
+        this.init();
+        this.render();
+    }
+
+    move(left, top) {
+        this.cursor.style["left"] = `${left}px`;
+        this.cursor.style["top"] = `${top}px`;
+    }
+
+    create() {
+        if (!this.cursor) {
+            this.cursor = document.createElement("div");
+            this.cursor.id = "cursor";
+            this.cursor.classList.add("hidden");
+            document.body.append(this.cursor);
+        }
+
+        var el = document.getElementsByTagName('*');
+        for (let i = 0; i < el.length; i++)
+            if (getStyle(el[i], "cursor") == "pointer")
+                this.pt.push(el[i].outerHTML);
+
+        document.body.appendChild((this.scr = document.createElement("style")));
+        this.scr.innerHTML = `* {cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' fill='%232ED8F1' opacity='.5'/></svg>") 4 4, auto !important}`;
+    }
+
+    refresh() {
+        this.scr.remove();
+        this.cursor.classList.remove("hover");
+        this.cursor.classList.remove("active");
+        this.pos = {curr: null, prev: null};
+        this.pt = [];
+        this.create();
+        this.init();
+        this.render();
+    }
+
+    init() {
+        document.onmouseover  = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.add("hover");
+        document.onmouseout   = e => this.pt.includes(e.target.outerHTML) && this.cursor.classList.remove("hover");
+        document.onmousemove  = e => {(this.pos.curr == null) && this.move(e.clientX - 8, e.clientY - 8); this.pos.curr = {x: e.clientX - 8, y: e.clientY - 8}; this.cursor.classList.remove("hidden");};
+        document.onmouseenter = e => this.cursor.classList.remove("hidden");
+        document.onmouseleave = e => this.cursor.classList.add("hidden");
+        document.onmousedown  = e => this.cursor.classList.add("active");
+        document.onmouseup    = e => this.cursor.classList.remove("active");
+    }
+
+    render() {
+        if (this.pos.prev) {
+            this.pos.prev.x = Math.lerp(this.pos.prev.x, this.pos.curr.x, 0.15);
+            this.pos.prev.y = Math.lerp(this.pos.prev.y, this.pos.curr.y, 0.15);
+            this.move(this.pos.prev.x, this.pos.prev.y);
+        } else {
+            this.pos.prev = this.pos.curr;
+        }
+        requestAnimationFrame(() => this.render());
+    }
+}
+
+(() => {
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            CURSOR = new Cursor();
+        });
+    } else {
+        CURSOR = new Cursor();
+    }
+})();
+</script>
+
+
+
+
+
+<style>
+ 
+#page-loader {
+    position: fixed;
+    inset: 0;
+    display: none;  
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    background: var(--body-background, #f5f5fa);
+}
+
+ 
+@keyframes loaderFadeOut {
+    0% { opacity: 1; transform: scale(1); }
+    60% { opacity: 0.35; transform: scale(1.06); }
+    100% { opacity: 0; transform: scale(1.1); }
+}
+
+#page-loader.is-fading-out {
+    animation: loaderFadeOut 1200ms cubic-bezier(.22,.61,.36,1) forwards;
+    will-change: opacity, transform;
+}
+
+ 
+#page-loader.is-fading-out .yin-yang {
+    opacity: 0.25;
+    transition: opacity 800ms ease;
+}
+
+ 
+.yin-yang-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+.yin-yang {
+     
+    --yin-size: 280px;  
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, white 50%, black 50%);
+    animation: rotate 4s linear infinite;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease;
+}
+.yin-yang { width: var(--yin-size); height: var(--yin-size); }
+.yin-yang::before,
+.yin-yang::after {
+    content: "";
+    position: absolute;
+    width: calc(var(--yin-size) / 2);
+    height: calc(var(--yin-size) / 2);
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.yin-yang::before {
+    top: 0;
+    background: black;
+}
+.yin-yang::after {
+    bottom: 0;
+    background: white;
+}
+.yin-yang:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+.dot {
+    position: absolute;
+    width: calc(var(--yin-size) * 0.15);
+    height: calc(var(--yin-size) * 0.15);
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    animation: pulse 4s ease-in-out infinite;
+}
+.dot.white { background: white; top: calc(var(--yin-size) * 0.25); }
+.dot.black { background: black; bottom: calc(var(--yin-size) * 0.25); }
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes pulse { 0%,100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.1); } }
+
+ 
+[data-scheme="dark"] #page-loader {
+    background: var(--body-background, #0f1115);
+}
+</style>
+
+<div id="page-loader" aria-hidden="true">
+    
+    <div class="yin-yang-loader">
+        <div class="yin-yang" role="status" aria-label="Loading">
+            <div class="dot white"></div>
+            <div class="dot black"></div>
+        </div>
+    </div>
+    
+</div>
+
+<script>
+
+(function initSessionLoadingOnce() {
+    try {
+        var hasVisited = sessionStorage.getItem('visited');
+        var loaderEl = document.getElementById('page-loader');
+        if (!loaderEl) return;
+
+        if (!hasVisited) {
+            
+            loaderEl.style.display = 'flex';
+
+            
+            var onFadeEnd = function() {
+                loaderEl.style.display = 'none';
+                loaderEl.removeEventListener('animationend', onFadeEnd);
+            };
+            var finish = function() {
+                if (!loaderEl) return;
+                loaderEl.addEventListener('animationend', onFadeEnd, { once: true });
+                loaderEl.classList.add('is-fading-out');
+                sessionStorage.setItem('visited', 'true');
+            };
+
+            if (document.readyState === 'complete') {
+                
+                finish();
+            } else {
+                window.addEventListener('load', finish, { once: true });
+            }
+        } else {
+            
+            loaderEl.style.display = 'none';
+        }
+    } catch (e) {
+        
+        var el = document.getElementById('page-loader');
+        if (el) el.style.display = 'none';
+    }
+})();
+</script>
+
+
+
+<style>
+    @font-face {
+        font-family: '仓耳状元楷';
+        src: url('https://yunmoxing.github.io/font/canger.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'JetBrainsMonoNL-SemiBold-Scaled';
+        src: url('/fonts/JetBrainsMonoNL-SemiBold.ttf') format('truetype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+        size-adjust: 93%;
+    }
+    :root {
+         
+        --base-font-family: '仓耳状元楷-CJK', 'JetBrainsMonoNL-SemiBold-Scaled', 'JetBrainsMonoNL-SemiBold', 'PingFang SC', 'Microsoft YaHei', 'SimSun', sans-serif;
+    }
+</style>
+
+<style>
+    @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('https://yunmoxing.github.io/font/JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+    @font-face {
+        font-family: 'JetBrains Mono';
+        src: url('https://yunmoxing.github.io/font/JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+    }
+    :root {
+        --code-font-family: 'JetBrains Mono', Menlo, Monaco, Consolas, 'Courier New', monospace;
+        --article-font-size: 2.0rem;
+        --article-line-height: 1.8;
+    }
+    @media (min-width: 768px) {
+        :root { --article-font-size: 2.2rem; }
+    }
+</style>
+
+<meta name="msvalidate.01" content="FAC513CEAE2D9EFA777C2EB1C88725ED">
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_fa43c3861b2bc72.gif" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🖥️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">陨熙然-Blog</a></h1>
+            <h2 class="site-description">山高自有客行路</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/yunmoxing'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-github"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://bilibili.com/3537114014681514'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='mailto:m19880730368@163.com'
+                        target="_blank"
+                        title="Email"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-mail-up"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 19h-7a2 2 0 0 1 -2 -2v-10a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v5.5" /><path d="M19 22v-6" /><path d="M22 19l-3 -3l-3 3" /><path d="M3 7l9 6l9 -6" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.jxue.edu.cn/'
+                        target="_blank"
+                        title="School"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-school"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 9l-10 -4l-10 4l10 4l10 -4v6" /><path d="M6 10.6v5.4a6 3 0 0 0 12 0v-5.4" /></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页|Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8Eabout/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于|About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档&amp;分类|Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E9%93%BE%E6%8E%A5links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>链接|Links</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/movies/' >
+                
+                
+                
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-movie"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 4l0 16" /><path d="M16 4l0 16" /><path d="M4 8l4 0" /><path d="M4 16l4 0" /><path d="M4 12l16 0" /><path d="M16 8l4 0" /><path d="M16 16l4 0" /></svg>
+                
+                <span>影音|Movies</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索|Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/photos/' >
+                
+                
+                
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-photo"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M15 8h.01" /><path d="M3 6a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v12a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-12z" /><path d="M3 16l5 -5c.928 -.893 2.072 -.893 3 0l5 5" /><path d="M14 14l1 -1c.928 -.893 2.072 -.893 3 0l3 3" /></svg>
+                
+                <span>相册|photos</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/goods/' >
+                
+                
+                
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-device-desktop"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 5a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-16a1 1 0 0 1 -1 -1v-10z" /><path d="M7 20h10" /><path d="M9 16v4" /><path d="M15 16v4" /></svg>
+                
+                <span>装备|goods</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/logs/' >
+                
+                
+                
+                    <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-logs"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 12h.01" /><path d="M4 6h.01" /><path d="M4 18h.01" /><path d="M8 18h2" /><path d="M8 12h2" /><path d="M8 6h2" /><path d="M14 6h6" /><path d="M14 12h6" /><path d="M14 18h6" /></svg>
+                
+                <span>更新日志|Logs</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#致谢">致谢</a></li>
+    <li><a href="#评分样式">评分样式</a></li>
+    <li><a href="#时间轴">时间轴</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/">
+                <img src="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/ilia-bronskiy-Z6QC1ey6XAw-unsplash_hu_3dbc0c5297c730d4.jpg"
+                        srcset="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/ilia-bronskiy-Z6QC1ey6XAw-unsplash_hu_3dbc0c5297c730d4.jpg 800w, /p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/ilia-bronskiy-Z6QC1ey6XAw-unsplash_hu_49499ca17b204449.jpg 1600w"
+                        width="800"
+                        height="533"
+                        loading="lazy"
+                        alt="Featured image of post Shortcodes | 短代码 （2）" />
+                
+            </a>
+        </div>
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%95%99%E7%A8%8B%E5%88%86%E4%BA%AB/" style="background-color: #ff9aa2; color: #fff;">
+                教程&amp;分享
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <div class="article-title-row">
+            <h2 class="article-title">
+                <a href="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81-2/">Shortcodes | 短代码 （2）</a>
+            </h2>
+
+            
+        </div>
+    
+        
+        <h3 class="article-subtitle">
+            在 Stack 主题上可行的短代码们
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+        
+        
+            
+            
+            
+                
+                
+                    
+                
+            
+            
+        
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div class="article-time--dates">
+                <div class="article-meta-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published">2026-04-28</time>
+                </div>
+                
+            </div>
+        
+
+        
+            <div class="separator">|</div>
+            <div class="article-meta-item article-time--wordcount">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-word"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2" /><path d="M9 12l1.333 5l1.667 -4l1.667 4l1.333 -5" /></svg>
+                <span class="article-word-count">
+                    <span class="article-word-count-number">1388</span>
+                    <span class="article-word-count-unit">字</span>
+                </span>
+            </div>
+        
+
+        
+            <div class="separator">|</div>
+            
+            <div class="article-meta-item view-count">
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-eye"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></svg>
+                <time class="article-time--reading">
+                    <span id="vercount_value_page_pv">loading...</span> <span class="view-count-unit">次</span>
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+
+    <section class="article-content">
+    
+    
+    <h2 id="致谢">致谢
+</h2><p>依旧感谢眠于水月间大佬的短代码合集和整理的源码，万分感谢(´∀｀)♡<br>
+参考文章 → <a class="link" href="https://www.sleepymoon.cyou/2023/hugo-shortcodes/"  target="_blank" rel="noopener"
+    >Hugo | 在 Stack 主题上可行的短代码们</a></p>
+<hr>
+<h2 id="评分样式">评分样式
+</h2><p>1.代码：</p>
+<ul>
+<li>新建<code>rating.html</code>文件，并复制以下代码：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;star-rating&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">    {{- if ge (.Get 0) (.Get 1) -}}
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">        {{- $star_outline := sub (int (.Get 0)) (int (.Get 1)) -}}
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">        {{- range $i, $sequence :=  (seq (.Get 1)) -}}
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">            <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;star&#34;</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 576 512&#34;</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z&#34;</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">        {{- end -}}
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">        {{- range $i, $sequence :=  (seq $star_outline) -}}
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">            <span class="p">&lt;</span><span class="nt">i</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;star-outline&#34;</span><span class="p">&gt;&lt;</span><span class="nt">svg</span> <span class="na">xmlns</span><span class="o">=</span><span class="s">&#34;http://www.w3.org/2000/svg&#34;</span> <span class="na">viewBox</span><span class="o">=</span><span class="s">&#34;0 0 576 512&#34;</span><span class="p">&gt;&lt;</span><span class="nt">path</span> <span class="na">d</span><span class="o">=</span><span class="s">&#34;M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z&#34;</span><span class="p">/&gt;&lt;/</span><span class="nt">svg</span><span class="p">&gt;&lt;/</span><span class="nt">i</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">        {{- end -}}
+</span></span><span class="line"><span class="ln">10</span><span class="cl">    {{- end -}}
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+</span></span></code></pre></div><ul>
+<li>在<code>custom.scss</code>文件中添加以下代码：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1">//星星评级
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="c1"></span><span class="nt">i</span><span class="nc">.star</span><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">    <span class="na">color</span><span class="o">:</span> <span class="nf">hsl</span><span class="p">(</span><span class="mi">61</span><span class="o">,</span> <span class="mi">79</span><span class="kt">%</span><span class="o">,</span> <span class="mi">63</span><span class="kt">%</span><span class="p">);</span> <span class="cm">/*星星的颜色*/</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">  <span class="nt">i</span><span class="nc">.star-outline</span><span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">    <span class="na">color</span><span class="o">:</span> <span class="nf">hsl</span><span class="p">(</span><span class="mi">211</span><span class="o">,</span> <span class="mi">31</span><span class="kt">%</span><span class="o">,</span> <span class="mi">74</span><span class="kt">%</span><span class="p">);</span><span class="cm">/*空星星的颜色*/</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">  
+</span></span><span class="line"><span class="ln">10</span><span class="cl">  <span class="nt">i</span><span class="nc">.star</span> <span class="nt">svg</span><span class="o">,</span> <span class="nt">i</span><span class="nc">.star-outline</span> <span class="nt">svg</span><span class="p">{</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="na">width</span><span class="o">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="na">fill</span><span class="o">:</span> <span class="ni">currentColor</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>2.使用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">{&lt; rating 10 7 &gt;} //总星数 实际星数；实际使用需要双括号；不可以打半星
+</span></span></code></pre></div><p>效果如下：
+<span class="star-rating"><i class="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/></svg></i><i class="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/></svg></i><i class="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/></svg></i><i class="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/></svg></i><i class="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/></svg></i><i class="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/></svg></i><i class="star"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/></svg></i><i class="star-outline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/></svg></i><i class="star-outline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/></svg></i><i class="star-outline"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/></svg></i></span>
+</p>
+<h2 id="时间轴">时间轴
+</h2><p>1.代码：</p>
+<ul>
+<li>新建<code>timeline.html</code>文件，并复制以下代码：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="ln">  1</span><span class="cl">{{- $date := .Get &#34;date&#34; -}} {{- $title := .Get &#34;title&#34; -}} {{- $description := .Get &#34;description&#34; -}} {{- $tags := .Get &#34;tags&#34; -}}
+</span></span><span class="line"><span class="ln">  2</span><span class="cl">
+</span></span><span class="line"><span class="ln">  3</span><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__row&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">  4</span><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__time&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">  5</span><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__time&#34;</span><span class="p">&gt;</span>{{ $date }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">  6</span><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__split-line&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">  7</span><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">  8</span><span class="cl">    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__content&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln">  9</span><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__tags&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 10</span><span class="cl">            {{- with split $tags &#34;, &#34; -}} {{- range . }}{{- if eq . &#34;样式&#34; }}
+</span></span><span class="line"><span class="ln"> 11</span><span class="cl">            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__tag timeline__tag-style&#34;</span><span class="p">&gt;</span>{{ . }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> {{- else if eq . &#34;文章&#34; }}
+</span></span><span class="line"><span class="ln"> 12</span><span class="cl">            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__tag timeline__tag-article&#34;</span><span class="p">&gt;</span>{{ . }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> {{- else if eq . &#34;页面&#34; }}
+</span></span><span class="line"><span class="ln"> 13</span><span class="cl">            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__tag timeline__tag-page&#34;</span><span class="p">&gt;</span>{{ . }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> {{- else }}
+</span></span><span class="line"><span class="ln"> 14</span><span class="cl">            <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__tag&#34;</span><span class="p">&gt;</span>{{ . }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span> {{- end }} {{- end }} {{- end }}
+</span></span><span class="line"><span class="ln"> 15</span><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 16</span><span class="cl">            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__title&#34;</span><span class="p">&gt;</span>{{ $title }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 17</span><span class="cl">        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;timeline__description&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 18</span><span class="cl">            {{ $description }}
+</span></span><span class="line"><span class="ln"> 19</span><span class="cl">        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 20</span><span class="cl">    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 21</span><span class="cl"><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 22</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 23</span><span class="cl"><span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="ln"> 24</span><span class="cl">    <span class="p">.</span><span class="nc">timeline</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 25</span><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 26</span><span class="cl">        <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">column</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 27</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 28</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 29</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__row</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 30</span><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 31</span><span class="cl">        <span class="k">padding-left</span><span class="p">:</span> <span class="mi">4</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 32</span><span class="cl">        <span class="k">height</span><span class="p">:</span> <span class="mi">90</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 33</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 34</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 35</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__time</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 36</span><span class="cl">        <span class="k">flex</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">110</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 37</span><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#5d5d5d</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 38</span><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">17</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 39</span><span class="cl">        <span class="k">text-transform</span><span class="p">:</span> <span class="kc">uppercase</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 40</span><span class="cl">        <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 41</span><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 42</span><span class="cl">        <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">column</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 43</span><span class="cl">        <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 44</span><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mf">0.5</span><span class="kt">rem</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 45</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 46</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 47</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__time-text</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 48</span><span class="cl">        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 49</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 50</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 51</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__split-line</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 52</span><span class="cl">        <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 53</span><span class="cl">        <span class="k">top</span><span class="p">:</span> <span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 54</span><span class="cl">        <span class="k">right</span><span class="p">:</span> <span class="mi">-20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 55</span><span class="cl">        <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 56</span><span class="cl">        <span class="k">width</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 57</span><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#84c4e2</span><span class="mi">40</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 58</span><span class="cl">        <span class="k">z-index</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 59</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 60</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 61</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__split-line</span><span class="p">:</span><span class="nd">before</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 62</span><span class="cl">        <span class="k">content</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 63</span><span class="cl">        <span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 64</span><span class="cl">        <span class="k">top</span><span class="p">:</span> <span class="mi">24</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 65</span><span class="cl">        <span class="k">right</span><span class="p">:</span> <span class="mi">-4</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 66</span><span class="cl">        <span class="k">transform</span><span class="p">:</span> <span class="nb">translateY</span><span class="p">(</span><span class="mi">-50</span><span class="kt">%</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 67</span><span class="cl">        <span class="k">width</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 68</span><span class="cl">        <span class="k">height</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 69</span><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#c9e5f2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 70</span><span class="cl">        <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">4</span><span class="kt">px</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">theme</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 71</span><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">50</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 72</span><span class="cl">        <span class="k">border</span><span class="p">:</span> <span class="mi">0</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#84c4e2</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 73</span><span class="cl">        <span class="k">z-index</span><span class="p">:</span> <span class="mi">-1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 74</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 75</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 76</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__content</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 77</span><span class="cl">        <span class="k">flex</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 78</span><span class="cl">        <span class="k">margin-left</span><span class="p">:</span> <span class="mf">4.5</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 79</span><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mf">0.5</span><span class="kt">rem</span> <span class="mi">0</span> <span class="mf">1.2</span><span class="kt">rem</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 80</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 81</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 82</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 83</span><span class="cl">        <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 84</span><span class="cl">        <span class="k">margin-bottom</span><span class="p">:</span> <span class="mi">2</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 85</span><span class="cl">        <span class="k">padding-top</span><span class="p">:</span> <span class="mi">3</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 86</span><span class="cl">        <span class="k">margin-left</span><span class="p">:</span> <span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 87</span><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">content</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 88</span><span class="cl">        <span class="k">font-family</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">font</span><span class="o">-</span><span class="n">family</span><span class="o">-</span><span class="n">teshu</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln"> 89</span><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">19</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 90</span><span class="cl">        <span class="k">font-weight</span><span class="p">:</span> <span class="mi">600</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 91</span><span class="cl">        <span class="k">width</span><span class="p">:</span> <span class="n">fit-content</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 92</span><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 93</span><span class="cl">        <span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 94</span><span class="cl">        <span class="c">/* 垂直居中对齐 */</span>
+</span></span><span class="line"><span class="ln"> 95</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln"> 96</span><span class="cl">    
+</span></span><span class="line"><span class="ln"> 97</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__tags</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln"> 98</span><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln"> 99</span><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">100</span><span class="cl">        <span class="k">margin-left</span><span class="p">:</span> <span class="mf">0.3</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">101</span><span class="cl">        <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">102</span><span class="cl">        <span class="k">gap</span><span class="p">:</span> <span class="mf">0.3</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">103</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">104</span><span class="cl">    
+</span></span><span class="line"><span class="ln">105</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__tag</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">106</span><span class="cl">        <span class="k">display</span><span class="p">:</span> <span class="kc">inline-block</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">107</span><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">secondary</span><span class="p">);</span>
+</span></span><span class="line"><span class="ln">108</span><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#84c4e2</span><span class="mi">30</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">109</span><span class="cl">        <span class="k">border</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">px</span> <span class="kc">solid</span> <span class="mh">#84c4e2</span><span class="mi">30</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">110</span><span class="cl">        <span class="k">border-radius</span><span class="p">:</span> <span class="mi">999</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">111</span><span class="cl">        <span class="k">padding</span><span class="p">:</span> <span class="mi">0</span><span class="kt">rem</span> <span class="mf">0.5</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">112</span><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">113</span><span class="cl">        <span class="k">white-space</span><span class="p">:</span> <span class="kc">nowrap</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">114</span><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.4</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">115</span><span class="cl">        <span class="k">opacity</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">116</span><span class="cl">        <span class="k">vertical-align</span><span class="p">:</span> <span class="kc">middle</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">117</span><span class="cl">        <span class="c">/* 垂直居中对齐 */</span>
+</span></span><span class="line"><span class="ln">118</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">119</span><span class="cl">    
+</span></span><span class="line"><span class="ln">120</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__description</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">121</span><span class="cl">        <span class="k">font-size</span><span class="p">:</span> <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">122</span><span class="cl">        <span class="k">line-height</span><span class="p">:</span> <span class="mf">1.6</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">123</span><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#5d5d5d</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">124</span><span class="cl">        <span class="k">overflow</span><span class="p">:</span> <span class="kc">hidden</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">125</span><span class="cl">        <span class="k">text-overflow</span><span class="p">:</span> <span class="kc">ellipsis</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">126</span><span class="cl">        <span class="k">margin</span><span class="p">:</span> <span class="mf">0.5</span><span class="kt">rem</span> <span class="mi">0</span> <span class="mf">0.4</span><span class="kt">rem</span> <span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">127</span><span class="cl">        <span class="c">/* 添加 1.5rem 的左侧内边距 */</span>
+</span></span><span class="line"><span class="ln">128</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">129</span><span class="cl">    <span class="c">/* 为类名为 &#34;timeline__tag-style&#34; 的标签定义颜色 */</span>
+</span></span><span class="line"><span class="ln">130</span><span class="cl">    
+</span></span><span class="line"><span class="ln">131</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__tag-style</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">132</span><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#c581da</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">133</span><span class="cl">        <span class="c">/* 替换为你希望的颜色 */</span>
+</span></span><span class="line"><span class="ln">134</span><span class="cl">        <span class="k">border-color</span><span class="p">:</span> <span class="mh">#c581da</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">135</span><span class="cl">        <span class="c">/* 与背景色相同或不同，根据需要自定义 */</span>
+</span></span><span class="line"><span class="ln">136</span><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#FFFFFF</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">137</span><span class="cl">        <span class="c">/* 根据需要选择文本颜色 */</span>
+</span></span><span class="line"><span class="ln">138</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">139</span><span class="cl">    <span class="c">/* 为类名为 &#34;timeline__tag-article&#34; 的标签定义颜色 */</span>
+</span></span><span class="line"><span class="ln">140</span><span class="cl">    
+</span></span><span class="line"><span class="ln">141</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__tag-article</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">142</span><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#92d392</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">143</span><span class="cl">        <span class="c">/* 替换为你希望的颜色 */</span>
+</span></span><span class="line"><span class="ln">144</span><span class="cl">        <span class="k">border-color</span><span class="p">:</span> <span class="mh">#92d392</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">145</span><span class="cl">        <span class="c">/* 与背景色相同或不同，根据需要自定义 */</span>
+</span></span><span class="line"><span class="ln">146</span><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#000000</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">147</span><span class="cl">        <span class="c">/* 根据需要选择文本颜色 */</span>
+</span></span><span class="line"><span class="ln">148</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">149</span><span class="cl">    <span class="c">/* 为类名为 &#34;timeline__tag-page&#34; 的标签定义颜色 */</span>
+</span></span><span class="line"><span class="ln">150</span><span class="cl">    
+</span></span><span class="line"><span class="ln">151</span><span class="cl">    <span class="p">.</span><span class="nc">timeline__tag-page</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">152</span><span class="cl">        <span class="k">background-color</span><span class="p">:</span> <span class="mh">#707070</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">153</span><span class="cl">        <span class="c">/* 替换为你希望的颜色 */</span>
+</span></span><span class="line"><span class="ln">154</span><span class="cl">        <span class="k">border-color</span><span class="p">:</span> <span class="mh">#707070</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">155</span><span class="cl">        <span class="c">/* 与背景色相同或不同，根据需要自定义 */</span>
+</span></span><span class="line"><span class="ln">156</span><span class="cl">        <span class="k">color</span><span class="p">:</span> <span class="mh">#FFFFFF</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">157</span><span class="cl">        <span class="c">/* 根据需要选择文本颜色 */</span>
+</span></span><span class="line"><span class="ln">158</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">159</span><span class="cl">    
+</span></span><span class="line"><span class="ln">160</span><span class="cl">    <span class="p">@</span><span class="k">media</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">768px</span><span class="o">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">161</span><span class="cl">        <span class="p">.</span><span class="nc">timeline__time</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">162</span><span class="cl">            <span class="k">font-size</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">163</span><span class="cl">            <span class="c">/* 在小屏幕上使用较小的字体大小 */</span>
+</span></span><span class="line"><span class="ln">164</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">165</span><span class="cl">        <span class="p">.</span><span class="nc">timeline__title</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">166</span><span class="cl">            <span class="k">font-size</span><span class="p">:</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">167</span><span class="cl">            <span class="c">/* 在小屏幕上使用较小的字体大小 */</span>
+</span></span><span class="line"><span class="ln">168</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">169</span><span class="cl">        <span class="p">.</span><span class="nc">timeline__description</span> <span class="p">{</span>
+</span></span><span class="line"><span class="ln">170</span><span class="cl">            <span class="k">font-size</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="ln">171</span><span class="cl">            <span class="c">/* 在小屏幕上使用较小的字体大小 */</span>
+</span></span><span class="line"><span class="ln">172</span><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="ln">173</span><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="ln">174</span><span class="cl"><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</span></span></code></pre></div><p>2.使用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="ln">1</span><span class="cl">{&lt; timeline date=&#34;2024-01-01&#34; title=&#34;事件标题&#34; description=&#34;事件描述&#34; tags=&#34;样式, 文章&#34; &gt;}
+</span></span></code></pre></div><p>效果如下：
+<div class="timeline__row">
+    <div class="timeline__time">
+        <div class="timeline__time">2025-09-15</div>
+        <div class="timeline__split-line"></div>
+    </div>
+    <div class="timeline__content">
+        <div class="timeline__tags">
+            <span class="timeline__tag">纪念日</span>
+        </div>
+        <div class="timeline__title">博客上线🎉</div>
+        <div class="timeline__description">
+            这注定是会被载入我的史册的日子
+        </div>
+    </div>
+</div>
+<div class="timeline__row">
+    <div class="timeline__time">
+        <div class="timeline__time">2025-08-21</div>
+        <div class="timeline__split-line"></div>
+    </div>
+    <div class="timeline__content">
+        <div class="timeline__tags">
+            <span class="timeline__tag">纪念日</span>
+        </div>
+        <div class="timeline__title">博客工程建设正式开始</div>
+        <div class="timeline__description">
+            经历了快一个暑假的摸索，终于找到了最中意的【hugo &#43; stack】组合
+        </div>
+    </div>
+</div></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/hugo/">Hugo</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    
+    <div class="post-reward">
+    <input id="reward" type="checkbox" style="display: none;">
+    <label class="cssbuttons-io-button" for="reward">
+        支持一下
+        <div class="icon">
+            <svg
+                height="24"
+                width="24"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                    fill="currentColor"
+                ></path>
+            </svg>
+        </div>
+    </label>
+    <div class="qr-code">
+        <div class="qr-code-image">
+            <span>微信</span>
+            <img src="/img/wechat.png" alt="微信支付二维码">
+        </div>
+        <div class="qr-code-image">
+            <span>支付宝</span>
+            <img src="/img/alipay.png" alt="支付宝支付二维码">
+        </div>
+    </div>
+</div>
+</footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/">
+        
+        
+            <div class="article-image">
+                <img src="/p/shortcodes-%E7%9F%AD%E4%BB%A3%E7%A0%81/marek-piwnicki-rwcONvax9qE-unsplash.903749d488b400782fb84edca9ec29f3_hu_c70d362c6496876c.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post Shortcodes | 短代码"
+                        
+                        data-hash="md5-kDdJ1Ii0AHgvuE7cqewp8w==">
+                
+            </div>
+        
+
+        <div class="article-details archive-category-card">
+            <h2 class="article-title">Shortcodes | 短代码</h2>
+        </div>
+    </a>
+</article>
+
+
+            
+                
+<article class="has-image">
+    <a href="/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
+        
+        
+            <div class="article-image">
+                <img src="/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/hugo.c8c67ddba94b136dce43c695832c17ae_hu_d5024820bbd27c56.jpg" 
+                        width="250" 
+                        height="150" 
+                        loading="lazy"
+                        alt="Featured image of post 【Hugo】Hugo &#43; Github 免费部署自己的博客"
+                        
+                        data-hash="md5-yMZ926lLE23OQ8aVgywXrg==">
+                
+            </div>
+        
+
+        <div class="article-details archive-category-card">
+            <h2 class="article-title">【Hugo】Hugo &#43; Github 免费部署自己的博客</h2>
+        </div>
+    </a>
+</article>
+
+
+            
+        </div>
+    </div>
+</aside>
+
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="yunmoxing/yunmoxing.github.io"
+    data-repo-id="R_kgDOPxBj_Q"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOPxBj_c4Cvg3-"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="zh-CN"
+    data-loading=""
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('preferred_color_scheme');
+            } else {
+                setGiscusTheme('preferred_color_scheme');
+            }
+        }
+    })();
+</script>
+
+    
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2025 - 
+        
+        2026 陨熙然
+    </section>
+    
+    <section class="powerby">
+        
+            <span class="runtime-display">本站已运行</span> <br/>
+        
+
+        
+        <span class="site-stats">共发表 7 篇文章・总计 9.41k 字</span> <br/>
+        
+
+        
+        
+            <span class="page-views" id="site-pageviews">本站总访问量 <span id="pageviews-count">0</span> 次</span> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<style>
+    #TableOfContents > ul ul,
+    #TableOfContents > ul ol,
+    #TableOfContents > ol ul,
+    #TableOfContents > ol ol {
+        display: none;
+    }
+    #TableOfContents .open {
+        display: block;
+    }
+</style>
+
+
+<script>
+    function initTocHide() {
+        
+        let toc = document.querySelector(".widget--toc");
+        if (!toc) {
+            return;
+        }
+        
+        window.addEventListener('scroll', function() {
+            
+            let openUl = document.querySelectorAll(".open");
+            if (openUl.length > 0) {
+              openUl.forEach((ul) => {
+                ul.classList.remove("open")
+              })
+            }
+            
+            let currentLi = document.querySelector(".active-class");
+            if (!currentLi) {
+                return
+            }
+            
+            if (currentLi.children.length > 1) {
+                currentLi.children[1].classList.add("open")
+            }
+            
+            let ul = currentLi.parentElement;
+            do {
+                ul.classList.add("open");
+                ul = ul.parentElement.parentElement
+            } while (ul !== undefined && (ul.localName === 'ul' || ul.localName === 'ol'))
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        initTocHide();
+    });
+</script>
+
+
+<style>
+    #backTopBtn {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        left: 1220px;  
+        z-index: 99;
+        cursor: pointer;
+        width: 30px;
+        height: 30px;
+        background-image: url('/icons/backTop.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: transform 0.7s ease;
+    }
+    #backTopBtn:hover {
+        transform: rotate(360deg);
+    }
+</style>
+
+
+<script>
+    
+
+    function initScrollTop() {
+        let rightSideBar = document.querySelector(".right-sidebar");
+        if (!rightSideBar) {
+            return;
+        }
+        
+        let btn = document.createElement("div");
+        btn.id = "backTopBtn";
+        btn.onclick = backToTop
+        rightSideBar.appendChild(btn)
+        
+        window.addEventListener('scroll', function() {
+            
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        });
+    }
+
+    
+
+    function backToTop(){
+        window.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        initScrollTop();
+        
+        
+        setTimeout(function() {
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            if (darkModeToggle) {
+                console.log('颜色切换按钮找到:', darkModeToggle);
+                console.log('按钮点击事件监听器数量:', darkModeToggle.onclick ? 1 : 0);
+            } else {
+                console.warn('颜色切换按钮未找到');
+            }
+        }, 1000);
+    });
+</script>
+
+
+<style>
+    .highlight {
+         
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+     
+    .highlight::before {
+        content: "";
+        display: block !important;
+        background: url('https://yunmoxing.github.io/icons/macOS-code-header.svg') no-repeat 0 !important;
+        background-size: contain !important;
+        height: 18px !important;
+        margin-top: -10px !important;
+        margin-bottom: 10px !important;
+        position: relative !important;
+        z-index: 1 !important;
+    }
+
+    .code-show {
+        max-height: none !important;
+    }
+
+    .code-more-box {
+        width: 100%;
+        padding-top: 78px;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+    }
+
+    .code-more-btn {
+        display: block;
+        margin: auto;
+        width: 44px;
+        height: 22px;
+        background: #f0f0f5;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding-top: 6px;
+        cursor: pointer;
+    }
+
+    .code-more-img {
+        cursor: pointer !important;
+        display: block;
+        margin: auto;
+        width: 22px;
+        height: 16px;
+    }
+</style>
+
+
+<script>
+  function initCodeMoreBox() {
+    let codeBlocks = document.querySelectorAll(".highlight");
+    if (!codeBlocks) {
+      return;
+    }
+    codeBlocks.forEach(codeBlock => {
+      
+      if (codeBlock.scrollHeight <= codeBlock.clientHeight) {
+        return;
+      }
+      
+      
+      let codeMoreBox = document.createElement('div');
+      codeMoreBox.classList.add('code-more-box');
+      
+      let codeMoreBtn = document.createElement('span');
+      codeMoreBtn.classList.add('code-more-btn');
+      codeMoreBtn.addEventListener('click', () => {
+        codeBlock.classList.add('code-show');
+        codeMoreBox.style.display = 'none';
+        
+        window.dispatchEvent(new Event('resize'))
+      })
+      
+      let img = document.createElement('img');
+      img.classList.add('code-more-img');
+      img.src = 'https:\/\/yunmoxing.github.io\/icons\/codeMore.png'
+      
+      codeMoreBtn.appendChild(img);
+      codeMoreBox.appendChild(codeMoreBtn);
+      codeBlock.appendChild(codeMoreBox)
+    })
+  }
+  
+  document.addEventListener('DOMContentLoaded', initCodeMoreBox);
+</script>
+
+
+<style>
+         
+        * {
+            font-family: var(--base-font-family) !important;
+        }
+
+         
+        .article-content {
+            font-size: var(--article-font-size) !important;
+            line-height: var(--article-line-height) !important;
+        }
+
+         
+        code,
+        kbd,
+        samp,
+        pre,
+        .article-content code,
+        .article-content pre,
+        .article-content pre code,
+        .article-content .highlight,
+        .article-content .highlight pre,
+        .article-content .highlight code,
+        .highlight,
+        .highlight code,
+        .highlight pre {
+            font-family: var(--code-font-family) !important;
+        }
+
+         
+        .article-content code,
+        .article-content pre,
+        .article-content pre code,
+        .article-content .highlight pre,
+        .article-content .highlight .chroma,
+        .article-content .highlight .chroma .lnt,
+        .article-content .highlight .chroma .ln,
+        .article-content .highlight .chroma .cl,
+        .article-content .highlight .chroma .line {
+            font-size: 1.6rem !important;
+            line-height: 1.4 !important;
+        }
+
+        .article-content .highlight pre,
+        .article-content .highlight pre code,
+        .article-content .highlight .chroma,
+        .article-content .highlight .chroma .lnt,
+        .article-content .highlight .chroma .ln,
+        .article-content .highlight .chroma .cl,
+        .article-content .highlight .chroma .line {
+            white-space: pre !important;
+            word-break: normal !important;
+            overflow-wrap: normal !important;
+        }
+
+         
+        .left-sidebar {
+            font-family: var(--base-font-family) !important;
+        }
+
+         
+        .left-sidebar .site-name {
+            font-size: 2.2rem !important;
+            font-weight: bold !important;
+        }
+
+        .left-sidebar .site-name a {
+            font-size: 2.2rem !important;
+            font-weight: bold !important;
+        }
+
+         
+        .left-sidebar .site-description {
+            font-size: 1.8rem !important;
+            line-height: 1.4 !important;
+            white-space: normal !important;
+            overflow: visible !important;
+            text-overflow: unset !important;
+            text-align: left !important;
+        }
+
+         
+        .left-sidebar #main-menu li a,
+        .left-sidebar #main-menu li span,
+        .left-sidebar .menu li a,
+        .left-sidebar .menu li span,
+        .left-sidebar #main-menu,
+        .left-sidebar #main-menu li,
+        .left-sidebar #main-menu li a,
+        .left-sidebar #main-menu li span,
+        .left-sidebar .menu,
+        .left-sidebar .menu li,
+        .left-sidebar .menu li a,
+        .left-sidebar .menu li span,
+        .left-sidebar nav li a,
+        .left-sidebar nav li span,
+        .left-sidebar .sidebar-menu li a,
+        .left-sidebar .sidebar-menu li span {
+            font-size: 1.6rem !important;
+            line-height: 1.2 !important;
+            transition: transform 0.25s ease !important;
+        }
+
+         
+        .left-sidebar,
+        .left-sidebar #main-menu,
+        .left-sidebar #main-menu li {
+            overflow: visible !important;
+        }
+        .left-sidebar #main-menu li a,
+        .left-sidebar .menu li a {
+            transform-origin: center center !important;
+        }
+        .left-sidebar #main-menu li a:hover,
+        .left-sidebar .menu li a:hover {
+            transform: scale(1.08) !important;
+        }
+
+         
+        .left-sidebar #dark-mode-toggle span {
+            font-size: 1.6rem !important;
+            line-height: 1.2 !important;
+        }
+
+         
+        .left-sidebar #dark-mode-toggle {
+            cursor: pointer;
+            transition: transform 0.25s ease;
+        }
+        .left-sidebar #dark-mode-toggle:hover {
+            transform: scale(1.08);
+        }
+        .left-sidebar #dark-mode-toggle svg {
+            transition: color 0.2s ease;
+        }
+        .left-sidebar #dark-mode-toggle:hover svg {
+            color: #0ea5e9 !important;
+        }
+
+         
+        .left-sidebar .menu-social {
+            font-size: 1.6rem !important;
+        }
+
+         
+        body .left-sidebar .menu li a,
+        body .left-sidebar .menu li span,
+        body .left-sidebar #main-menu li a,
+        body .left-sidebar #main-menu li span {
+            font-size: 1.6rem !important;
+            line-height: 1.2 !important;
+        }
+
+         
+        .left-sidebar .menu li a.active,
+        .left-sidebar .menu li span.active,
+        .left-sidebar #main-menu li a.active,
+        .left-sidebar #main-menu li span.active,
+        .left-sidebar .menu li a:hover,
+        .left-sidebar .menu li span:hover,
+        .left-sidebar #main-menu li a:hover,
+        .left-sidebar #main-menu li span:hover,
+        body .left-sidebar .menu li a.active,
+        body .left-sidebar .menu li span.active,
+        body .left-sidebar #main-menu li a.active,
+        body .left-sidebar #main-menu li span.active,
+        body .left-sidebar .menu li a:hover,
+        body .left-sidebar .menu li span:hover,
+        body .left-sidebar #main-menu li a:hover,
+        body .left-sidebar #main-menu li span:hover {
+            color: #87CEEB !important;
+            font-weight: bold !important;
+        }
+</style>
+
+
+<div id="particles-js"></div>
+
+<script src="https://yunmoxing.github.io/background/particles.min.js"></script>
+<script>
+  particlesJS.load('particles-js', 'https:\/\/yunmoxing.github.io\/background\/particlesjs-config.json', function() {
+    console.log('particles.js loaded - callback');
+  });
+</script>
+
+<style>
+  #particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;         
+    pointer-events: none;  
+    z-index: -2;
+  }
+</style>
+
+
+
+<script
+    src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
+    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
+    crossorigin="anonymous"
+></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
+    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE"
+    crossorigin="anonymous"
+/>
+<style>
+     
+    #nprogress .bar {
+        height: 3px !important;
+        background: linear-gradient(
+            to right,
+            #e0f4fc 0%,
+            #7dd3fc 35%,
+            #0ea5e9 65%,
+            #0369a1 100%
+        ) !important;
+        box-shadow: 0 2px 8px rgba(3, 105, 161, 0.35);
+    }
+    #nprogress .peg {
+        box-shadow: 0 0 10px #0ea5e9, 0 0 5px #0ea5e9 !important;
+    }
+</style>
+<script>
+    NProgress.start();
+    document.addEventListener("readystatechange", () => {
+        if (document.readyState === "interactive") NProgress.inc(0.8);
+        if (document.readyState === "complete") NProgress.done();
+    });
+</script>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+<script>
+    function confetti() {
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+    }
+    document.addEventListener('click', confetti);
+</script>
+
+
+
+
+<div id="aplayer"></div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+<script>
+    
+    const staticDir = 'https:\/\/yunmoxing.github.io\/' + 'music/';
+    const songs = [
+        '倒数 - G.E.M.邓紫棋',
+        '句号 - G.E.M.邓紫棋',
+        '泡沫 - G.E.M.邓紫棋',
+        '画皮 - 纸砚zyan',
+        '从未见过的海 - 告五人',
+        '失眠播报 - 苏星婕',
+        '阿拉斯加海湾 - 蓝心羽',
+        '鹿 be free - 尚雯婕',
+        '静悄悄 - 陈泫孝',
+        '嚣张 - en (王翊恩)',
+        '笼 - 张碧晨',
+        'Blueming - IU',
+        '삐삐 - IU',
+        'In The End - Tommee Profitt',
+        '小半 - 陈粒',
+        '走马 - 陈粒',
+        '虚拟 - 陈粒',
+        '野火 - 戾格',
+        '像鱼 - 王贰浪',
+        '成都 - 赵雷',
+        '群青 - YOASOBI'
+
+    ];
+    let audios = [];
+    songs.forEach(item => {
+        
+        const songInfo = item.split(' - ');
+        const songName = songInfo[0] || item;
+        const artist = songInfo[1] || '未知艺术家';
+        
+        audios.push({
+            name: songName,
+            artist: artist,
+            url: staticDir + item + '/song.mp3',
+            cover: staticDir + item + '/cover.jpg',
+            lrc: staticDir + item + '/lyric.lrc'
+        });
+    });
+    
+    
+    const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: true,
+        lrcType: 3,
+        audio: audios
+    });
+
+    
+    const STORAGE_KEY = 'aplayer_play_state_v1';
+
+    
+    function restorePlayState() {
+        try {
+            const json = localStorage.getItem(STORAGE_KEY);
+            if (!json) return;
+            const state = JSON.parse(json);
+            if (!state) return;
+
+            
+            if (typeof state.index === 'number' && state.index >= 0 && state.index < ap.list.audios.length) {
+                ap.list.switch(state.index);
+            }
+
+            
+            const targetTime = Number(state.currentTime || 0);
+            if (!Number.isNaN(targetTime) && targetTime > 0) {
+                setTimeout(() => {
+                    try { ap.seek(targetTime); } catch (e) {}
+                }, 300);
+            }
+
+            
+            if (state.paused === false) {
+                setTimeout(() => { try { ap.play(); } catch (e) {} }, 350);
+            }
+        } catch (_) {}
+    }
+
+    
+    function persistPlayState() {
+        try {
+            const state = {
+                index: ap.list.index,
+                currentTime: ap.audio ? ap.audio.currentTime : 0,
+                paused: ap.paused
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (_) {}
+    }
+
+    
+    ap.on('timeupdate', persistPlayState);
+    ap.on('listswitch', persistPlayState);
+    ap.on('pause', persistPlayState);
+    ap.on('play', persistPlayState);
+
+    
+    window.addEventListener('beforeunload', persistPlayState);
+
+    
+    window.addEventListener('load', restorePlayState);
+</script>
+
+
+
+<script>
+    
+    (function() {
+        var originalTitle = document.title;
+        var restoreTimer = null;
+        var leaveTexts = [
+            'o(TヘTo)我会想你的~',
+            '(￣︿￣)别走嘛~',
+            '(；′⌒`)你去哪儿了？',
+            '(｡•́︿•̀｡)我在这里等你…',
+            '(つ﹏⊂) 还会回来吗？'
+        ];
+        var backTexts = [
+            '(≧∀≦)ゞ我就知道你舍不得我！',
+            '(๑•̀ㅂ•́)و✧ 欢迎归来！',
+            'o(≧口≦)o 你回来啦！',
+            '(*^▽^*) 想你啦~',
+            '(＾▽＾) 欢迎回来~'
+        ];
+
+        function pickRandom(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function handleVisibilityChange() {
+            if (document.hidden) {
+                
+                originalTitle = originalTitle || document.title;
+                document.title = pickRandom(leaveTexts);
+                if (restoreTimer) clearTimeout(restoreTimer);
+            } else {
+                
+                document.title = pickRandom(backTexts);
+                if (restoreTimer) clearTimeout(restoreTimer);
+                restoreTimer = setTimeout(function() {
+                    document.title = originalTitle;
+                }, 1500);
+            }
+        }
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        
+        window.addEventListener('pageshow', function() {
+            if (!document.hidden) handleVisibilityChange();
+        });
+    })();
+</script>
+
+
+<script>
+    
+    (function() {
+        
+        var startDateStr = "2025-09-15";
+        var startDate = new Date(startDateStr.replace(/-/g, '/')); 
+        var now = new Date();
+        
+        
+        const diffTime = now - startDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+        const diffSeconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+        
+        
+        function formatRuntime() {
+            let runtimeText = "本站已运行 ";
+            
+            if (diffDays > 0) {
+                runtimeText += diffDays + " 天";
+                if (diffHours > 0) {
+                    runtimeText += " " + diffHours + " 小时";
+                }
+                if (diffMinutes > 0) {
+                    runtimeText += " " + diffMinutes + " 分钟";
+                }
+                if (diffSeconds > 0) {
+                    runtimeText += " " + diffSeconds + " 秒";
+                }
+            } else if (diffHours > 0) {
+                runtimeText += diffHours + " 小时";
+                if (diffMinutes > 0) {
+                    runtimeText += " " + diffMinutes + " 分钟";
+                }
+                if (diffSeconds > 0) {
+                    runtimeText += " " + diffSeconds + " 秒";
+                }
+            } else if (diffMinutes > 0) {
+                runtimeText += diffMinutes + " 分钟";
+                if (diffSeconds > 0) {
+                    runtimeText += " " + diffSeconds + " 秒";
+                }
+            } else {
+                runtimeText += diffSeconds + " 秒";
+            }
+            
+            return runtimeText;
+        }
+        
+        
+        function updateRuntime() {
+            const runtimeElement = document.querySelector('.runtime-display');
+            if (runtimeElement) {
+                
+                const now = new Date();
+                const diffTime = now - startDate;
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                const diffHours = Math.floor((diffTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const diffMinutes = Math.floor((diffTime % (1000 * 60 * 60)) / (1000 * 60));
+                const diffSeconds = Math.floor((diffTime % (1000 * 60)) / 1000);
+                
+                let runtimeText = "本站已运行 ";
+                
+                if (diffDays > 0) {
+                    runtimeText += diffDays + " 天";
+                    if (diffHours > 0) {
+                        runtimeText += " " + diffHours + " 小时";
+                    }
+                    if (diffMinutes > 0) {
+                        runtimeText += " " + diffMinutes + " 分钟";
+                    }
+                    if (diffSeconds > 0) {
+                        runtimeText += " " + diffSeconds + " 秒";
+                    }
+                } else if (diffHours > 0) {
+                    runtimeText += diffHours + " 小时";
+                    if (diffMinutes > 0) {
+                        runtimeText += " " + diffMinutes + " 分钟";
+                    }
+                    if (diffSeconds > 0) {
+                        runtimeText += " " + diffSeconds + " 秒";
+                    }
+                } else if (diffMinutes > 0) {
+                    runtimeText += diffMinutes + " 分钟";
+                    if (diffSeconds > 0) {
+                        runtimeText += " " + diffSeconds + " 秒";
+                    }
+                } else {
+                    runtimeText += diffSeconds + " 秒";
+                }
+                
+                runtimeElement.textContent = runtimeText;
+            }
+        }
+        
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            updateRuntime();
+            
+            
+            setInterval(updateRuntime, 1000);
+        });
+    })();
+</script>
+
+
+<script>
+    (function() {
+        var SESSION_KEY = 'vercount_visit_recorded_v1';
+        var CACHE_KEY = 'vercount_site_pv_cache_v1';
+        var siteVisitWrapper = document.getElementById('site-pageviews');
+        var siteVisitEle = document.getElementById('pageviews-count');
+        var pageVisitEle = document.getElementById('vercount_value_page_pv');
+        var isArticlePage = document.body.classList.contains('article-page') && !!pageVisitEle;
+
+        function isLocalhost() {
+            var h = location.hostname;
+            return h.includes('localhost') || h === '127.0.0.1' || h === '0.0.0.0' || h === '::1' || location.port === '1313' || location.protocol === 'file:';
+        }
+
+        function isExternalReferrer() {
+            if (!document.referrer) return false;
+
+            try {
+                return new URL(document.referrer).origin !== location.origin;
+            } catch (_) {
+                return false;
+            }
+        }
+
+        function getCookie(name) {
+            var nameEq = name + '=';
+            var parts = document.cookie ? document.cookie.split('; ') : [];
+
+            for (var i = 0; i < parts.length; i++) {
+                if (parts[i].indexOf(nameEq) === 0) {
+                    return parts[i].substring(nameEq.length);
+                }
+            }
+
+            return null;
+        }
+
+        function hasRecordedVisitInSession() {
+            try {
+                if (getCookie(SESSION_KEY) === '1') {
+                    return true;
+                }
+
+                return sessionStorage.getItem(SESSION_KEY) === '1';
+            } catch (_) {
+                return false;
+            }
+        }
+
+        function markVisitRecorded() {
+            try {
+                document.cookie = SESSION_KEY + '=1; path=/; SameSite=Lax';
+                sessionStorage.setItem(SESSION_KEY, '1');
+            } catch (_) {}
+        }
+
+        function getCachedSitePv() {
+            try {
+                return localStorage.getItem(CACHE_KEY);
+            } catch (_) {
+                return null;
+            }
+        }
+
+        function cacheSitePv(value) {
+            try {
+                localStorage.setItem(CACHE_KEY, value);
+            } catch (_) {}
+        }
+
+        function setDisplayValue(value) {
+            if (siteVisitWrapper) {
+                siteVisitWrapper.style.display = 'inline';
+            }
+
+            if (siteVisitEle) {
+                siteVisitEle.textContent = value;
+            }
+        }
+
+        function setLocalDebugValue() {
+            setDisplayValue('0');
+            if (pageVisitEle) {
+                pageVisitEle.textContent = '0';
+            }
+        }
+
+        function ensureSitePvPlaceholder() {
+            if (!document.getElementById('vercount_value_site_pv')) {
+                var span = document.createElement('span');
+                span.id = 'vercount_value_site_pv';
+                span.style.display = 'none';
+                document.body.appendChild(span);
+            }
+        }
+
+        function shouldCountVisit() {
+            return !isLocalhost() && isExternalReferrer() && !hasRecordedVisitInSession();
+        }
+
+        function loadVercountScript() {
+            if (document.querySelector('script[data-vercount-loader="true"]')) {
+                return;
+            }
+
+            var script = document.createElement('script');
+            script.defer = true;
+            script.src = 'https://cn.vercount.one/js';
+            script.setAttribute('data-vercount-loader', 'true');
+            document.body.appendChild(script);
+        }
+
+        function syncPagePvFromVercount() {
+            if (!pageVisitEle) return false;
+
+            var text = (pageVisitEle.textContent || '').trim();
+            if (!text || text === 'loading...') return false;
+
+            return true;
+        }
+
+        function syncSitePvFromVercount() {
+            var sitePvEle = document.getElementById('vercount_value_site_pv');
+            if (!siteVisitEle || !sitePvEle) return false;
+
+            var text = (sitePvEle.textContent || '').trim();
+            if (!text || text === 'loading...') return false;
+
+            setDisplayValue(text);
+            cacheSitePv(text);
+            return true;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (isLocalhost()) {
+                if (siteVisitEle) {
+                    setLocalDebugValue();
+                } else if (pageVisitEle) {
+                    pageVisitEle.textContent = '0';
+                }
+                return;
+            }
+
+            if (siteVisitEle) {
+                var cached = getCachedSitePv();
+                setDisplayValue(cached || '0');
+            }
+
+            var shouldLoadForArticlePv = isArticlePage;
+            var shouldLoadForSitePv = !!siteVisitEle && shouldCountVisit();
+
+            if (!shouldLoadForArticlePv && !shouldLoadForSitePv) {
+                return;
+            }
+
+            if (shouldLoadForSitePv) {
+                ensureSitePvPlaceholder();
+                markVisitRecorded();
+            }
+
+            loadVercountScript();
+
+            var attempts = 0;
+            var timer = setInterval(function() {
+                attempts++;
+
+                var pageReady = !shouldLoadForArticlePv || syncPagePvFromVercount();
+                var siteReady = !shouldLoadForSitePv || syncSitePvFromVercount();
+
+                if (pageReady && siteReady) {
+                    clearInterval(timer);
+                    return;
+                }
+
+                if (attempts >= 30) {
+                    clearInterval(timer);
+                    if (pageVisitEle && ((pageVisitEle.textContent || '').trim() === '' || (pageVisitEle.textContent || '').trim() === 'loading...')) {
+                        pageVisitEle.textContent = '0';
+                    }
+                }
+            }, 300);
+
+            setTimeout(function() {
+                if (shouldLoadForSitePv) {
+                    syncSitePvFromVercount();
+                }
+
+                if (pageVisitEle && !syncPagePvFromVercount()) {
+                    pageVisitEle.textContent = '0';
+                }
+            }, 4000);
+        });
+    })();
+</script>
+
+
+<style>
+    #waifu,
+    #waifu-toggle {
+        z-index: 999 !important;
+    }
+
+    #waifu-tool {
+        left: auto !important;
+        right: 15px !important;
+        top: 55px !important;
+        z-index: 1000 !important;
+    }
+</style>
+<script>
+    (function() {
+        const engineCdn = "https://cdn.jsdelivr.net/gh/yunmoxing/yan_live2d-widget-v3@v1.0.4";
+
+        const config = {
+            path: {
+                homePath: "/",
+                modelPath: "/live2d/Resources/",
+                cssPath: engineCdn + "/waifu.css",
+                tipsJsonPath: engineCdn + "/waifu-tips.json",
+                tipsJsPath: "/live2d/waifu-tips.js",
+                live2dCorePath: engineCdn + "/Core/live2dcubismcore.js",
+                live2dSdkPath: engineCdn + "/live2d-sdk.js"
+            },
+            tools: ["hitokoto", "asteroids", "express", "photo", "info", "quit"],
+            drag: {
+                enable: true,
+                direction: ["x", "y"]
+            },
+            switchType: "order"
+        };
+
+        function loadExternalResource(url, type) {
+            return new Promise((resolve, reject) => {
+                let tag;
+
+                if (type === "css") {
+                    tag = document.createElement("link");
+                    tag.rel = "stylesheet";
+                    tag.href = url;
+                } else if (type === "js") {
+                    tag = document.createElement("script");
+                    tag.src = url;
+                }
+
+                if (!tag) {
+                    reject(new Error("Unsupported resource type"));
+                    return;
+                }
+
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(new Error("Failed to load: " + url));
+                document.head.appendChild(tag);
+            });
+        }
+
+        if (screen.width >= 768) {
+            Promise.all([
+                loadExternalResource(config.path.cssPath, "css"),
+                loadExternalResource(config.path.live2dCorePath, "js"),
+                loadExternalResource(config.path.live2dSdkPath, "js"),
+                loadExternalResource(config.path.tipsJsPath, "js")
+            ]).then(() => {
+                if (typeof initWidget !== "function") {
+                    return;
+                }
+
+                initWidget({
+                    homePath: config.path.homePath,
+                    waifuPath: config.path.tipsJsonPath,
+                    cdnPath: config.path.modelPath,
+                    tools: config.tools,
+                    dragEnable: config.drag.enable,
+                    dragDirection: config.drag.direction,
+                    switchType: config.switchType
+                });
+            }).catch(error => {
+                console.error("Live2D load failed:", error);
+            });
+        }
+    })();
+</script>
+
+
+<div id="jsi-flying-fish-container"></div>
+
+
+<style>
+#jsi-flying-fish-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    z-index: -1;
+    opacity: 0;           
+    overflow: hidden;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+ 
+.show-fish #jsi-flying-fish-container {
+    opacity: .5;
+}
+</style>
+
+
+<script>
+window.initFlyingFish = function () {
+    const container = document.getElementById('jsi-flying-fish-container');
+    if (!container) return;
+
+     
+    const oldCanvas = container.querySelector('canvas');
+    if (oldCanvas) oldCanvas.remove();
+
+     
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/gh/yunmoxing/yan_js@main/fish.js';
+    script.onload = function () {
+        if (typeof RENDERER !== 'undefined') RENDERER.init();
+    };
+    document.head.appendChild(script);
+
+     
+    function checkBottom() {
+        const doc = document.documentElement;
+        const isBottom = (window.innerHeight + Math.ceil(window.pageYOffset))
+                         >= (doc.scrollHeight - 10);
+        document.body.classList.toggle('show-fish', isBottom);
+    }
+
+     
+    window.addEventListener('scroll', checkBottom);
+    checkBottom(); 
+};
+
+ 
+document.addEventListener('DOMContentLoaded', initFlyingFish);
+
+ 
+document.addEventListener('pjax:complete', initFlyingFish);
+</script>
+
+    </body>
+</html>
