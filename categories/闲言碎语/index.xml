@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>闲言碎语 on 陨熙然</title>
-        <link>https://yunmoxing.github.io/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</link>
+        <link>http://localhost:1313/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/</link>
         <description>Recent content in 闲言碎语 on 陨熙然</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>陨熙然</copyright>
-        <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yunmoxing.github.io/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 14 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E9%97%B2%E8%A8%80%E7%A2%8E%E8%AF%AD/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>你好 Hugo</title>
-        <link>https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/</link>
+        <link>http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/</link>
         <pubDate>Sun, 14 Sep 2025 00:00:00 +0000</pubDate>
         
-        <guid>https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/</guid>
-        <description>&lt;img src="https://yunmoxing.github.io/p/%E4%BD%A0%E5%A5%BD-hugo/nathan-broadbent-DkO2Isk9tjo-unsplash.jpg" alt="Featured image of post 你好 Hugo" /&gt;&lt;h2 id=&#34;致谢&#34;&gt;致谢
+        <guid>http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/</guid>
+        <description>&lt;img src="http://localhost:1313/p/%E4%BD%A0%E5%A5%BD-hugo/nathan-broadbent-DkO2Isk9tjo-unsplash.jpg" alt="Featured image of post 你好 Hugo" /&gt;&lt;h2 id=&#34;致谢&#34;&gt;致谢
 &lt;/h2&gt;&lt;p&gt;本博客前前后后花了一个月左右的时间，第一次见到这么多代码和&lt;del&gt;报错（bushi）&lt;/del&gt;，在此感谢众多大佬的分享（下面展示部分），如果没有你们的帮助，我的博客不会这么完工。&lt;br&gt;
 &lt;a class=&#34;link&#34; href=&#34;https://letere-gzj.github.io/hugo-stack/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;莱特雷-letere&lt;/a&gt;  前期导师，让我完成了基本功能 &lt;br&gt;
