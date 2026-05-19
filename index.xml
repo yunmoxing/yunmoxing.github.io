@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>陨熙然-Blog</title>
+        <title>陨熙然</title>
         <link>https://yunmoxing.github.io/</link>
-        <description>Recent content on 陨熙然-Blog</description>
+        <description>Recent content on 陨熙然</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>陨熙然</copyright>
@@ -1989,18 +1989,21 @@
         
         <guid>https://yunmoxing.github.io/%E9%93%BE%E6%8E%A5links/</guid>
         <description>&lt;!-- To use this feature, add `links` section to frontmatter. --&gt;
-&lt;p&gt;在此页面留言即可，邮箱懒得搞~~~ 或者访问&lt;a class=&#34;link&#34; href=&#34;https://yunmoxing.github.io/apps/&#34; &gt;软件页面&lt;/a&gt;查看软件推荐&lt;/p&gt;
+&lt;p&gt;下方的链接是我喜欢的一些网站或博客，希望对你能有所帮助，当然也欢迎你来交换友链&lt;br&gt;
+如想交换友链，请在此页面评论区按如下格式留言即可，如果看到自己的站点出现在下方，请不要见怪&lt;br&gt;
+另外也可访问&lt;a class=&#34;link&#34; href=&#34;https://yunmoxing.github.io/apps/&#34; &gt;软件页面&lt;/a&gt;查看软件推荐&lt;/p&gt;
 &lt;div class=&#34;alert-tip&#34;&gt;
-  &lt;blockquote&gt;&lt;p&gt;&lt;strong&gt;名称&lt;/strong&gt; : GitHub&lt;br&gt;
-&lt;strong&gt;简介&lt;/strong&gt; : GitHub 是全球最大的软件开发平台&lt;br&gt;
-&lt;strong&gt;网址&lt;/strong&gt; : &lt;a class=&#34;link&#34; href=&#34;https://github.com&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com&lt;/a&gt;&lt;br&gt;
-&lt;strong&gt;头像&lt;/strong&gt; : &lt;a class=&#34;link&#34; href=&#34;https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/a&gt;&lt;/p&gt;
+  &lt;blockquote&gt;&lt;p&gt;名称: 陨熙然&lt;br&gt;
+简介: 山高自有客行路，水深自有渡船人&lt;br&gt;
+网址: &lt;a class=&#34;link&#34; href=&#34;https://yunmoxing.github.io/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://yunmoxing.github.io/&lt;/a&gt;&lt;br&gt;
+头像: &lt;a class=&#34;link&#34; href=&#34;https://yunmoxing.github.io/img/yunxiran.png&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://yunmoxing.github.io/img/yunxiran.png&lt;/a&gt;&lt;/p&gt;
   &lt;/blockquote&gt;
 &lt;/div&gt;
 
-&lt;!-- `image` field accepts both local and external images. --&gt;</description>
+&lt;!-- `image` field accepts both local and external images. --&gt;
+</description>
         </item>
         <item>
         <title>软件|Apps</title>
